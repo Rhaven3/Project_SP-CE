@@ -1,0 +1,15 @@
+# ninja log v5
+3	1572	7379930177624999	Project-SP-CE_autogen/timestamp	5bf04357514c75f4
+3	1572	7379930177624999	Project-SP-CE_autogen/mocs_compilation.cpp	5bf04357514c75f4
+3	1572	7379930177624999	C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/timestamp	5bf04357514c75f4
+3	1572	7379930177624999	C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/mocs_compilation.cpp	5bf04357514c75f4
+1573	7093	7379930233869191	CMakeFiles/Project-SP-CE.dir/Project-SP-CE_autogen/mocs_compilation.cpp.obj	187c297c43fdc2e
+1581	7114	7379930234059067	CMakeFiles/Project-SP-CE.dir/main.cpp.obj	3d4e317a86cfde35
+1577	7151	7379930234538799	CMakeFiles/Project-SP-CE.dir/mainwindow.cpp.obj	bb6be5578533c2fb
+7152	7938	7379930242422589	Project-SP-CE.exe	ec008378bca58e3a
+175	1426	7379966066431985	Project-SP-CE_autogen/timestamp	5bf04357514c75f4
+175	1426	7379966066431985	Project-SP-CE_autogen/mocs_compilation.cpp	5bf04357514c75f4
+175	1426	7379966066431985	C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/timestamp	5bf04357514c75f4
+175	1426	7379966066431985	C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/mocs_compilation.cpp	5bf04357514c75f4
+1441	7388	7379966125807320	CMakeFiles/Project-SP-CE.dir/mainwindow.cpp.obj	bb6be5578533c2fb
+7390	8296	7379966134917580	Project-SP-CE.exe	ec008378bca58e3a
