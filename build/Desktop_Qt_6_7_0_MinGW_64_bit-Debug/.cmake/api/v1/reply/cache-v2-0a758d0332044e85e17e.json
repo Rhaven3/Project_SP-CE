@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug"
+			"value" : "c:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -563,7 +563,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/fontaine/Documents/Project-SP-CE"
+			"value" : "C:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -767,7 +767,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/Project-SP-CE"
+			"value" : "C:/Program Files (x86)/Project_SP-CE"
 		},
 		{
 			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
@@ -1063,7 +1063,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "C:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1075,7 +1075,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Project-SP-CE"
+			"value" : "Project_SP-CE"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1566,7 +1566,7 @@
 			"value" : "1"
 		},
 		{
-			"name" : "Project-SP-CE_BINARY_DIR",
+			"name" : "Project_SP-CE_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1575,10 +1575,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug"
+			"value" : "C:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug"
 		},
 		{
-			"name" : "Project-SP-CE_IS_TOP_LEVEL",
+			"name" : "Project_SP-CE_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1590,7 +1590,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Project-SP-CE_SOURCE_DIR",
+			"name" : "Project_SP-CE_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1599,7 +1599,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/fontaine/Documents/Project-SP-CE"
+			"value" : "C:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE"
 		},
 		{
 			"name" : "QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH",
@@ -6211,7 +6211,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files (x86)/Project-SP-CE"
+			"value" : "C:/Program Files (x86)/Project_SP-CE"
 		}
 	],
 	"kind" : "cache",

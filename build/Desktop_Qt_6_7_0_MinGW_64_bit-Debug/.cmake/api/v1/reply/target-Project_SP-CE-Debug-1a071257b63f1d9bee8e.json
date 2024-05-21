@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Project-SP-CE.exe"
+			"path" : "Project_SP-CE.exe"
 		},
 		{
-			"path" : "Project-SP-CE.pdb"
+			"path" : "Project_SP-CE.pdb"
 		}
 	],
 	"backtrace" : 4,
@@ -322,7 +322,7 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "C:/Users/fontaine/Documents/Project-SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/include"
+					"path" : "C:/Users/fontaine/Desktop/Th\u00e9o Fontaine/Projet BTS/Project_SP-CE/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project_SP-CE_autogen/include"
 				},
 				{
 					"backtrace" : 14,
@@ -371,14 +371,14 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "Project-SP-CE_autogen::@6890427a1f51a3e7e1df"
+			"id" : "Project_SP-CE_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "Project-SP-CE_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "Project_SP-CE_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "Project-SP-CE::@6890427a1f51a3e7e1df",
+	"id" : "Project_SP-CE::@6890427a1f51a3e7e1df",
 	"install" : 
 	{
 		"destinations" : 
@@ -390,7 +390,7 @@
 		],
 		"prefix" : 
 		{
-			"path" : "C:/Program Files (x86)/Project-SP-CE"
+			"path" : "C:/Program Files (x86)/Project_SP-CE"
 		}
 	},
 	"link" : 
@@ -472,8 +472,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Project-SP-CE",
-	"nameOnDisk" : "Project-SP-CE.exe",
+	"name" : "Project_SP-CE",
+	"nameOnDisk" : "Project_SP-CE.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -520,7 +520,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/mocs_compilation.cpp",
+			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project_SP-CE_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -548,19 +548,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/include/ui_mainwindow.h",
+			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project_SP-CE_autogen/include/ui_mainwindow.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/timestamp",
+			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project_SP-CE_autogen/timestamp",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project-SP-CE_autogen/timestamp.rule",
+			"path" : "build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Project_SP-CE_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
 		}
 	],
