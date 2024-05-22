@@ -19,7 +19,7 @@ inline void Logger();
 
     //global var
 string date,cArticle, OF, nPanne, comp, commentaire;
-string Log= " | \t"  + date + " | " + cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
+string Log= cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
 
 
 int main(int argc, char *argv[])
@@ -72,29 +72,27 @@ inline void Logger(string logMsg){
     string logDir = "../Log/";
     createDirectory(logDir);
     string filePath = logDir + "log_"+getCurrentDateTime("date")+".txt";
-        //date and creation
-    string now = getCurrentDateTime("now");
+        //creation
     ofstream ofs(filePath.c_str(), std::ios_base::out | std::ios_base::app );
         //msg
     bool isEmpty = isLogFileEmpty(filePath);
     (isEmpty) ? ofs<<"date \t | \t code Article | n°OF | N°Panne | Composant Concerné | Commentaire \n\n" : ofs;
-    ofs << now << '\t' << logMsg << '\n';
+    ofs << date << '\t' << logMsg << '\n';
     ofs.close();
 }
 
 //default
 inline void Logger(){
         //path
-    Log= " | \t"  + date + " | " + cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
+    Log= cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
     string logDir = "../Log/";
     createDirectory(logDir);
     string filePath = logDir + "log_"+getCurrentDateTime("date")+".txt";
-        //date and creation
-    string now = getCurrentDateTime("now");
+        //creation
     ofstream ofs(filePath.c_str(), std::ios_base::out | std::ios_base::app );
         //msg
     bool isEmpty = isLogFileEmpty(filePath);
     (isEmpty) ? ofs<<"date \t | \t code Article | n°OF | N°Panne | Composant Concerné | Commentaire \n\n" : ofs;
-    ofs << now << '\t' << Log << '\n';
+    ofs << date << '\t' << Log << '\n';
     ofs.close();
 }
