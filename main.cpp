@@ -26,9 +26,9 @@ inline void Logger(string);
 inline void Logger();
 inline void ExtractLogD();
 inline void ExtractOF();
+inline void LogSpliter();
 //test
 inline string Randomiser(short);
-//inline void LogTest();
 inline string LogTest();
 
     //global var
@@ -46,13 +46,8 @@ int main(int argc, char *argv[])
 
     //Logger();
 
-    //essai log test
-    long x=0;
-    while(x!=10) {
-        Logger(LogTest());
-        x++;
-    }
 
+    LogSpliter();
     w.show();
     return a.exec();
 }
@@ -130,7 +125,7 @@ inline void ExtractOF(){
 
 }
 
-//test
+    //test
 string generateRandomNumberString(int length) {
     // Initialize random number generator
     random_device rd;  // Seed for the random number engine
@@ -154,41 +149,15 @@ string generateRandomNumberString(int length) {
 
 double generateRandomNumberDouble(int length) {
     string randomNumberStr = generateRandomNumberString(length);
-
     // Convert the string to a double
-    // Note: This will lose precision because double cannot accurately represent 100 digit numbers
     double randomNumberDouble = stod(randomNumberStr);
-
     return randomNumberDouble;
 }
 
 //randomgen
 inline  string Randomiser(short n) {
     short passwordLength;
- /*
-    std::string characterSets;
 
-    //generates a string with the length of passwordLength where each digit is a random approved character set for the password
-    //i.e. 224332 is approved if they chose lowercase, uppercase, and digits
-    bool error = true;
-    while (error) {
-        characterSets = generateRandCharSet(options, passwordLength);
-
-        error = false;
-        if ((options->find(1)!=options->end()||options->find(0)!=options->end())&&characterSets.find("1")==std::string::npos) {
-            error = true;
-        }
-        if ((options->find(2)!=options->end()||options->find(0)!=options->end())&&characterSets.find("2")==std::string::npos) {
-            error = true;
-        }
-        if ((options->find(3)!=options->end()||options->find(0)!=options->end())&&characterSets.find("3")==std::string::npos) {
-            error = true;
-        }
-        if ((options->find(4)!=options->end()||options->find(0)!=options->end())&&characterSets.find("4")==std::string::npos) {
-            error = true;
-        }
-    }
-*/
     //size for log
     if (n==1) { //cArticle
         passwordLength = 9;
@@ -204,31 +173,7 @@ inline  string Randomiser(short n) {
 
     double password = generateRandomNumberDouble(passwordLength);
     QString Qpass;
-
     string pass;
-    /*
-    std::string lowercase = "abcdefghijklmnopqrstuvwxyz";
-    std::string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::string digits = "0123456789";
-    std::string symbols = " ~!@#$%^&*()-=+[{]}\\;:'""/?.>,<";
-
-    //generates the password by choosing a random character from each character set in the string characterSets
-
-    for (int i = 0; i < passwordLength; i++) {
-        if (characterSets[i]=='1') {
-            password+=lowercase[rand() % lowercase.length()];
-        }
-        else if (characterSets[i]=='2') {
-            password+=uppercase[rand() % uppercase.length()];
-        }
-        else if (characterSets[i]=='3') {
-            password+=digits[rand() % digits.length()];
-        }
-        else if (characterSets[i]=='4') {
-            password+=symbols[rand() % symbols.length()];
-        }
-    }
-*/
 
     Qpass= QString::fromStdString(to_string(password));
     auto Qlist= Qpass.split(u'.');
@@ -248,4 +193,21 @@ inline string LogTest() {
 
 
     return Log;
+}
+
+inline void LogSpliter() {
+    string filePath="../Log/log_2024-05-23.txt";
+    ifstream file(filePath); // Ouvrir le fichier en lecture
+
+    if (!file.is_open()) {
+        cerr << "Erreur lors de l'ouverture du fichier : " << filePath << endl;
+        return;
+    }
+
+    string line;
+    while (getline(file, line)) { // Lire le fichier ligne par ligne
+        cout << line << endl; // Afficher chaque ligne
+    }
+
+    file.close(); // Fermer le fichier
 }
