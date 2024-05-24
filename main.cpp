@@ -1,9 +1,10 @@
 //src
 #include "mainwindow.h"
-#include "test.h"
+
 
 //default
 #include <QApplication>
+#include <iostream>
 
 using namespace std;
 

@@ -3,7 +3,7 @@
 
 test::test() {}
 
-inline string test::generateRandomNumberString(int length) {
+string test::generateRandomNumberString(int length) {
     // Initialize random number generator
     random_device rd;  // Seed for the random number engine
     mt19937 gen(rd()); // Mersenne Twister engine
@@ -24,14 +24,14 @@ inline string test::generateRandomNumberString(int length) {
     return randomNumber;
 }
 
-inline double test::generateRandomNumberDouble(int length) {
+double test::generateRandomNumberDouble(int length) {
     string randomNumberStr = test::generateRandomNumberString(length);
     // Convert the string to a double
     double randomNumberDouble = stod(randomNumberStr);
     return randomNumberDouble;
 }
 
-inline  string test::Randomiser(short n) {
+string test::Randomiser(short n) {
     short passwordLength;
 
     //size for log
@@ -58,7 +58,7 @@ inline  string test::Randomiser(short n) {
     return pass;
 }
 
-inline string test::LogTest() {
+string test::LogTest() {
     date= getCurrentDateTime("now");
     cArticle=Randomiser(1);
     OF=Randomiser(2);

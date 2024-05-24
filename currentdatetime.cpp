@@ -1,6 +1,6 @@
 #include "currentdatetime.h"
 
-inline string getCurrentDateTime(string s){
+string getCurrentDateTime(string s){
     time_t now = time(0);
     struct tm  tstruct;
     char  buf[80];

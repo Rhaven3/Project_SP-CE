@@ -22,7 +22,7 @@ void Logger::createDirectory(const string& dirPath) {
 }
 
 //with log msg
-inline void Logger::lPrint(string logMsg){
+void Logger::lPrint(string logMsg){
     //path
     string logDir = "../Log/";
     Logger::createDirectory(logDir);
@@ -37,7 +37,7 @@ inline void Logger::lPrint(string logMsg){
 }
 
 //default
-inline void Logger::lPrint(){
+void Logger::lPrint(){
     //path
     Log= cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
     string logDir = "../Log/";

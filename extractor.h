@@ -9,9 +9,9 @@ class Extractor
 public:
     Extractor();
 
-    inline void ExtractLogD();
-    inline void ExtractOF();
-    inline void LogSpliter();
+    void ExtractLogD();
+    void ExtractOF();
+    void LogSpliter();
 };
 
 #endif // EXTRACTOR_H

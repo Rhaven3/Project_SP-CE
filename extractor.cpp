@@ -3,15 +3,15 @@
 Extractor::Extractor() {}
 
 //extractLogD
-inline void Extractor::ExtractLogD() {
+void Extractor::ExtractLogD() {
 
 }
     //extractOF
-inline void Extractor::ExtractOF(){
+void Extractor::ExtractOF(){
 
 }
 
-inline void Extractor::LogSpliter() {
+void Extractor::LogSpliter() {
     string filePath="../Log/log_2024-05-23.txt";
     ifstream file(filePath); // Ouvrir le fichier en lecture
 

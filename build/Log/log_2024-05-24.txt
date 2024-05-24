@@ -1,0 +1,3 @@
+date 	 | 	 code Article | n°OF | N°Panne | Composant Concerné | Commentaire 
+
+	 |  |  |  | 

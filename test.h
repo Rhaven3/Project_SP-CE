@@ -11,16 +11,16 @@ class test
 public:
     test();
 
-    inline string Randomiser(short);
-    inline string LogTest();
+    string Randomiser(short);
+    string LogTest();
 
 private:
      //global var
     string date,cArticle, OF, nPanne, comp, commentaire;
     // 1 | 2 | 3 | 4 | 5
     string Log= cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
-    inline string generateRandomNumberString(int length);
-    inline double generateRandomNumberDouble(int length);
+    string generateRandomNumberString(int length);
+    double generateRandomNumberDouble(int length);
 };
 
 #endif // TEST_H
