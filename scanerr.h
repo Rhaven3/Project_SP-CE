@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iterator>
+#include <set>
 using namespace std;
 
 class ScanErr

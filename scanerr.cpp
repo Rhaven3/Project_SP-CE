@@ -73,9 +73,13 @@ vector<string> ScanErr::readLogsFromFile(const string &filePath) {
 
 // Fonction pour trouver les llogs similaires
 void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
+    set<pair<size_t, size_t>> comparedPairs;
+
     for (size_t i = 0; i < logs.size(); ++i) {
         for (size_t j = i + 1; j < logs.size(); ++j) {
-            double similarity = mongeElkanSimilarity(logs[i], logs[j]);
+            pair<size_t, size_t> logPair = std::make_pair(i, j);
+            if (comparedPairs.find(logPair) == comparedPairs.end()) {
+                double similarity = mongeElkanSimilarity(logs[i], logs[j]);
 
             if (similarity >= threshold / 100.0) {
                 std::cout << "Log 1: " << logs[i] << std::endl;
@@ -83,6 +87,8 @@ void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
                 std::cout << "Similarity: " << similarity * 100 << "%" << std::endl;
                 std::cout << "---------------------------" << std::endl;
             }
+            comparedPairs.insert(logPair);
         }
+    }
     }
 }
