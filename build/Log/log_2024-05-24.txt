@@ -1,3 +1,14 @@
 date 	 | 	 code Article | n°OF | N°Panne | Composant Concerné | Commentaire 
 
-	 |  |  |  | 
+Error: Failed to connect to database
+Error: Connection to database failed
+Error: Database connection failure
+Warning: Low memory detected
+Warning: Memory is running low
+Warning: Low disk space
+Info: Database connected successfully
+Info: User logged in
+Info: User successfully logged in
+Error: Unable to establish database connection
+Error: Database connection error
+Error: Failed to connect to database

@@ -14,6 +14,7 @@ SOURCES += \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
+    scanerr.cpp \
     test.cpp
 
 HEADERS += \
@@ -21,6 +22,7 @@ HEADERS += \
     extractor.h \
     logger.h \
     mainwindow.h \
+    scanerr.h \
     test.h
 
 FORMS += \

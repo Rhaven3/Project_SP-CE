@@ -12,7 +12,7 @@ void Extractor::ExtractOF(){
 }
 
 void Extractor::LogSpliter() {
-    string filePath="../Log/log_2024-05-23.txt";
+    string filePath="../Log/log_2024-05-22.txt";
     ifstream file(filePath); // Ouvrir le fichier en lecture
 
     if (!file.is_open()) {
