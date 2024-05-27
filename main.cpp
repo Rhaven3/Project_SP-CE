@@ -19,9 +19,12 @@ int main(int argc, char *argv[])
     string filePath = "../Log/log_2024-05-24.txt";
     vector<string> logs = l.readLogsFromFile(filePath);
 
-    int similarityThreshold = 50; // Pourcentage de similarité minimum
-    //l.findSimilarLogs(logs, similarityThreshold);
+    int similarityThreshold = 60; // Pourcentage de similarité minimum
+    l.findSimilarLogs(logs, similarityThreshold);
     //ex.LogSpliter();
+
+
+
 
     w.show();
     return a.exec();

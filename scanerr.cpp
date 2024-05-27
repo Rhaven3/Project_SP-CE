@@ -75,8 +75,7 @@ vector<string> ScanErr::readLogsFromFile(const string &filePath) {
 void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
     for (size_t i = 0; i < logs.size(); ++i) {
         for (size_t j = i + 1; j < logs.size(); ++j) {
-            int distance = levenshteinDistance(logs[i], logs[j]);
-            double similarity = 1.0 - static_cast<double>(distance) / std::max(logs[i].size(), logs[j].size());
+            double similarity = mongeElkanSimilarity(logs[i], logs[j]);
 
             if (similarity >= threshold / 100.0) {
                 std::cout << "Log 1: " << logs[i] << std::endl;
