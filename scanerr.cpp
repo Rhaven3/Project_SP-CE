@@ -32,8 +32,8 @@ vector<string> ScanErr::tokenize(const string &s) {
 
 // Monge Elkan Similarité
 double ScanErr::mongeElkanSimilarity(const std::string &s1, const std::string &s2) {
-    std::vector<std::string> tokens1 = tokenize(s1);
-    std::vector<std::string> tokens2 = tokenize(s2);
+    vector<string> tokens1 = tokenize(s1);
+    vector<string> tokens2 = tokenize(s2);
 
     double totalMaxSimilarity = 0.0;
 
@@ -77,18 +77,18 @@ void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
 
     for (size_t i = 0; i < logs.size(); ++i) {
         for (size_t j = i + 1; j < logs.size(); ++j) {
-            pair<size_t, size_t> logPair = std::make_pair(i, j);
+            pair<size_t, size_t> logPair = make_pair(i, j);
             if (comparedPairs.find(logPair) == comparedPairs.end()) {
                 double similarity = mongeElkanSimilarity(logs[i], logs[j]);
 
-            if (similarity >= threshold / 100.0) {
-                std::cout << "Log 1: " << logs[i] << std::endl;
-                std::cout << "Log 2: " << logs[j] << std::endl;
-                std::cout << "Similarity: " << similarity * 100 << "%" << std::endl;
-                std::cout << "---------------------------" << std::endl;
-            }
+                if (similarity >= threshold / 100.0) {
+                    cout << "Log 1: " << logs[i] << endl;
+                    cout << "Log 2: " << logs[j] << endl;
+                    cout << "Similarity: " << similarity * 100 << "%" << endl;
+                    cout << "---------------------------" << endl;
+                }
             comparedPairs.insert(logPair);
+            }
         }
-    }
     }
 }
