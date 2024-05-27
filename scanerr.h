@@ -5,6 +5,8 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
+#include <iterator>
 using namespace std;
 
 class ScanErr
@@ -16,6 +18,9 @@ public:
 
 private:
     int levenshteinDistance(const string&, const string&);
+    double levenshteinSimilarity(const string&, const string&);
+    vector<string> tokenize(const string&);
+    double mongeElkanSimilarity(const string&, const string&);
 };
 
 #endif // SCANERR_H

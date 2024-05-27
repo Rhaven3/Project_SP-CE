@@ -18,6 +18,39 @@ int ScanErr::levenshteinDistance(const string &s1, const string &s2) {
     return d[len1][len2];
 }
 
+//Levenshtein Similarité
+double ScanErr::levenshteinSimilarity(const string &s1, const string &s2) {
+    int dist = ScanErr::levenshteinDistance(s1, s2);
+    return 1.0 - static_cast<double>(dist) / max(s1.size(), s2.size());
+}
+
+// Fonction pour diviser une chaîne en tokens
+vector<string> ScanErr::tokenize(const string &s) {
+    istringstream iss(s);
+    return vector<string>(istream_iterator<string>{iss}, istream_iterator<string>());
+}
+
+// Monge Elkan Similarité
+double ScanErr::mongeElkanSimilarity(const std::string &s1, const std::string &s2) {
+    std::vector<std::string> tokens1 = tokenize(s1);
+    std::vector<std::string> tokens2 = tokenize(s2);
+
+    double totalMaxSimilarity = 0.0;
+
+    for (const auto &token1 : tokens1) {
+        double maxSimilarity = 0.0;
+        for (const auto &token2 : tokens2) {
+            double similarity = levenshteinSimilarity(token1, token2);
+            if (similarity > maxSimilarity) {
+                maxSimilarity = similarity;
+            }
+        }
+        totalMaxSimilarity += maxSimilarity;
+    }
+
+    return totalMaxSimilarity / tokens1.size();
+}
+
 
 // Fonction pour lire les logs depuis un fichier
 vector<string> ScanErr::readLogsFromFile(const string &filePath) {
