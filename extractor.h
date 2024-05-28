@@ -11,7 +11,6 @@ public:
 
     void ExtractLogD();
     void ExtractOF();
-    void LogSpliter();
 };
 
 #endif // EXTRACTOR_H

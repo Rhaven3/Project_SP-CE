@@ -73,20 +73,53 @@ vector<string> ScanErr::readLogsFromFile(const string &filePath) {
 
 // Fonction pour trouver les llogs similaires
 void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
+
+
+
     set<pair<size_t, size_t>> comparedPairs;
 
-    for (size_t i = 0; i < logs.size(); ++i) {
+    for (size_t i = 2; i < logs.size(); ++i) {
+
+        //split i
+        Qlog= QString::fromStdString(logs[i]);
+        QlogLi1 = Qlog.split(u'\t');
+        QlogLi = QlogLi1.at(1).split(u'|');
+
+        date[0]=QlogLi1.at(0).toStdString();
+        cArticle[0]=QlogLi.at(0).toStdString();
+        OF[0]=QlogLi.at(1).toStdString();
+        nPanne[0]=QlogLi.at(2).toStdString();
+        comp[0]=QlogLi.at(3).toStdString();
+        commentaire[0]=QlogLi.at(4).toStdString();
+
         for (size_t j = i + 1; j < logs.size(); ++j) {
+
+            //split j
+            Qlog= QString::fromStdString(logs[j]);
+            QlogLj1 = Qlog.split(u'\t');
+            QlogLj = QlogLj1.at(1).split(u'|');
+
+            date[1]=QlogLj1.at(0).toStdString();
+            cArticle[1]=QlogLj.at(0).toStdString();
+            OF[1]=QlogLj.at(1).toStdString();
+            nPanne[1]=QlogLj.at(2).toStdString();
+            comp[1]=QlogLj.at(3).toStdString();
+            commentaire[1]=QlogLj.at(4).toStdString();
+
+
+
+            //vérif double && same article, of, nPanne, comp
             pair<size_t, size_t> logPair = make_pair(i, j);
             if (comparedPairs.find(logPair) == comparedPairs.end()) {
-                double similarity = mongeElkanSimilarity(logs[i], logs[j]);
 
-                if (similarity >= threshold / 100.0) {
+                double similarity = mongeElkanSimilarity(commentaire[0], commentaire[1]);
+                if ((similarity >= threshold / 100.0)&& cArticle[0]==cArticle[1]&& OF[0]==OF[1]&& nPanne[0]==nPanne[1]&& comp[0]==comp[1]) {
                     cout << "Log 1: " << logs[i] << endl;
                     cout << "Log 2: " << logs[j] << endl;
                     cout << "Similarity: " << similarity * 100 << "%" << endl;
                     cout << "---------------------------" << endl;
                 }
+
             comparedPairs.insert(logPair);
             }
         }

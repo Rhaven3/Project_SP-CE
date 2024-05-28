@@ -8,6 +8,8 @@
 #include <sstream>
 #include <iterator>
 #include <set>
+#include <QString>
+#include <QStringList>
 using namespace std;
 
 class ScanErr
@@ -22,6 +24,13 @@ private:
     double levenshteinSimilarity(const string&, const string&);
     vector<string> tokenize(const string&);
     double mongeElkanSimilarity(const string&, const string&);
+
+    //split
+    QString Qlog;
+    QStringList QlogLi1, QlogLj1, QlogLi, QlogLj;
+    //log
+    string date[2],cArticle[2], OF[2], nPanne[2], comp[2], commentaire[2];
+
 };
 
 #endif // SCANERR_H
