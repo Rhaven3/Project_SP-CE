@@ -1,9 +1,6 @@
 #include "scanerr.h"
 
 ScanErr::ScanErr() {}
-Log::Log() {
-
-}
 
 // Fonction pour calculer la distance de Levenshtein
 int ScanErr::levenshteinDistance(const string &s1, const string &s2) {
@@ -56,9 +53,9 @@ double ScanErr::mongeElkanSimilarity(const std::string &s1, const std::string &s
 
 
 // Fonction pour lire les logs depuis un fichier
-vector<string> ScanErr::readLogsFromFile(const string &filePath) {
+vector<Log> ScanErr::readLogsFromFile(const string &filePath) {
     ifstream file(filePath);
-    vector<string> logs;
+    vector<Log> logs;
     string line;
 
     if (!file.is_open()) {
@@ -66,16 +63,22 @@ vector<string> ScanErr::readLogsFromFile(const string &filePath) {
         return logs;
     }
 
+    unsigned int id=1;
+    array<string, 7> content = {line, "", "", "", "", "", ""};
+    vector<unsigned int> sim_id;
     while (getline(file, line)) {
-        logs.push_back(line);
+
+        logs.emplace_back(0.0, id, sim_id, content);
+        id++;
     }
+
 
     file.close();
     return logs;
 }
 
 // Fonction pour trouver les llogs similaires
-void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
+void ScanErr::findSimilarLogs(const vector<Log> &logs, int threshold) {
 
 
 
@@ -84,41 +87,27 @@ void ScanErr::findSimilarLogs(const vector<string> &logs, int threshold) {
     for (size_t i = 2; i < logs.size(); ++i) {
 
         //split i
-        Qlog= QString::fromStdString(logs[i]);
-        QlogLi1 = Qlog.split(u'\t');
-        QlogLi = QlogLi1.at(1).split(u'|');
-
-        date[0]=QlogLi1.at(0).toStdString();
-        cArticle[0]=QlogLi.at(0).toStdString();
-        OF[0]=QlogLi.at(1).toStdString();
-        nPanne[0]=QlogLi.at(2).toStdString();
-        comp[0]=QlogLi.at(3).toStdString();
-        commentaire[0]=QlogLi.at(4).toStdString();
+        logs[i].split();
 
         for (size_t j = i + 1; j < logs.size(); ++j) {
 
             //split j
-            Qlog= QString::fromStdString(logs[j]);
-            QlogLj1 = Qlog.split(u'\t');
-            QlogLj = QlogLj1.at(1).split(u'|');
-
-            date[1]=QlogLj1.at(0).toStdString();
-            cArticle[1]=QlogLj.at(0).toStdString();
-            OF[1]=QlogLj.at(1).toStdString();
-            nPanne[1]=QlogLj.at(2).toStdString();
-            comp[1]=QlogLj.at(3).toStdString();
-            commentaire[1]=QlogLj.at(4).toStdString();
-
-
+            logs[j].split();
 
             //vérif double && same article, of, nPanne, comp
             pair<size_t, size_t> logPair = make_pair(i, j);
             if (comparedPairs.find(logPair) == comparedPairs.end()) {
 
-                double similarity = mongeElkanSimilarity(commentaire[0], commentaire[1]);
-                if ((similarity >= threshold / 100.0)&& cArticle[0]==cArticle[1]&& OF[0]==OF[1]&& nPanne[0]==nPanne[1]&& comp[0]==comp[1]) {
-                    cout << "Log 1: " << logs[i] << endl;
-                    cout << "Log 2: " << logs[j] << endl;
+                double similarity = mongeElkanSimilarity(logs[i].content[6], logs[j].content[6]);
+                //si sim_ratio>=treshold && =cArticle && =OF && =nPanne && =comp
+                if ((similarity >= threshold / 100.0)&&
+                    logs[i].content[2]==logs[j].content[2]&&
+                    logs[i].content[3]==logs[j].content[3]&&
+                    logs[i].content[4]==logs[j].content[4]&&
+                    logs[i].content[5]==logs[j].content[5])
+                {
+                    cout << "Log 1: " << logs[i].content[0] << endl;
+                    cout << "Log 2: " << logs[j].content[0] << endl;
                     cout << "Similarity: " << similarity * 100 << "%" << endl;
                     cout << "---------------------------" << endl;
                 }

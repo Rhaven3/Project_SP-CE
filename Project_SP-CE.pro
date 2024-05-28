@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     currentdatetime.cpp \
     extractor.cpp \
+    log.cpp \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 HEADERS += \
     currentdatetime.h \
     extractor.h \
+    log.h \
     logger.h \
     mainwindow.h \
     scanerr.h \
