@@ -1,6 +1,9 @@
 #include "scanerr.h"
 
 ScanErr::ScanErr() {}
+Log::Log() {
+
+}
 
 // Fonction pour calculer la distance de Levenshtein
 int ScanErr::levenshteinDistance(const string &s1, const string &s2) {

@@ -33,4 +33,11 @@ private:
 
 };
 
+class Log {
+public:
+    Log ();
+
+private:
+
+};
 #endif // SCANERR_H
