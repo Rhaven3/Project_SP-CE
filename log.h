@@ -6,6 +6,7 @@
 #include <QString>
 #include <QStringList>
 #include <array>
+#include <iostream>
 using namespace std;
 
 class Log {

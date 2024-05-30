@@ -67,7 +67,7 @@ vector<Log> ScanErr::readLogsFromFile(const string &filePath) {
     array<string, 7> content = {line, "", "", "", "", "", ""};
     vector<unsigned int> sim_id;
     while (getline(file, line)) {
-
+        content = {line, "", "", "", "", "", ""};
         logs.emplace_back(0.0, id, sim_id, content);
         id++;
     }
@@ -106,6 +106,7 @@ void ScanErr::findSimilarLogs(const vector<Log> &logs, int threshold) {
                     logs[i].content[4]==logs[j].content[4]&&
                     logs[i].content[5]==logs[j].content[5])
                 {
+                    logs[i].sim_id.push_back(logs[j].id);
                     cout << "Log 1: " << logs[i].content[0] << endl;
                     cout << "Log 2: " << logs[j].content[0] << endl;
                     cout << "Similarity: " << similarity * 100 << "%" << endl;
