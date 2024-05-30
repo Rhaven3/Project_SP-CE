@@ -78,11 +78,10 @@ vector<Log> ScanErr::readLogsFromFile(const string &filePath) {
 }
 
 // Fonction pour trouver les llogs similaires
-void ScanErr::findSimilarLogs(const vector<Log> &logs, int threshold) {
-
-
+vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
 
     set<pair<size_t, size_t>> comparedPairs;
+    vector<Log> simlogs;
 
     for (size_t i = 2; i < logs.size(); ++i) {
 
@@ -106,15 +105,77 @@ void ScanErr::findSimilarLogs(const vector<Log> &logs, int threshold) {
                     logs[i].content[4]==logs[j].content[4]&&
                     logs[i].content[5]==logs[j].content[5])
                 {
-                    logs[i].sim_id.push_back(logs[j].id);
+                    //ajout id_logs similaire s
+                    if (logs[i].sim_id.empty()) {
+                        logs[i].sim_id.push_back(logs[j].id);
+                    }
+                    if (logs[j].sim_id.empty()) {
+                        logs[j].sim_id.push_back(logs[i].id);
+                    }
+
+                    for (size_t x = 0; x < logs[i].sim_id.size(); ++x) {
+                        if (logs[i].sim_id[x]!=logs[j].id) {
+                            logs[i].sim_id.push_back(logs[j].id);
+                        }
+                    }
+                    for (size_t x = 0; x < logs[j].sim_id.size(); ++x) {
+                        if (logs[j].sim_id[x]!=logs[i].id) {
+                            logs[j].sim_id.push_back(logs[i].id);
+                        }
+                    }
+
+                    simlogs.emplace_back(logs[i]);
+                    simlogs.emplace_back(logs[j]);
                     cout << "Log 1: " << logs[i].content[0] << endl;
                     cout << "Log 2: " << logs[j].content[0] << endl;
                     cout << "Similarity: " << similarity * 100 << "%" << endl;
                     cout << "---------------------------" << endl;
+                    cout << "---------------------------" << endl;
                 }
-
-            comparedPairs.insert(logPair);
+                comparedPairs.insert(logPair);
             }
         }
+    }
+    //storage moy similarity indice
+    //
+    //
+    return simlogs;
+}
+
+void ScanErr::findRecLogs(const vector<Log>& logs, unsigned int treshold) {
+
+    //recherche d'id similaire
+    unsigned int count=0;
+    vector<Log> tempsimlogs;
+    //archivage des logs récurente
+    vector<Log> treshlogs;
+
+    for (size_t i = 0; i < logs.size(); ++i) {
+
+        tempsimlogs.emplace_back(logs[i]);
+
+        for (size_t j = i + 1; j < logs.size(); ++j) {
+
+            for (unsigned int simid : logs[i].sim_id ) {
+
+                if (simid == logs[j].id) {
+                    count++;
+                    tempsimlogs.emplace_back(logs[j]);
+                }
+            }
+            if (count >= treshold) {
+                treshlogs.emplace_back(logs[i]);
+                cout<<"Nombre d'erreur similaire trop important."<<'\n';
+                cout<<"Logs similaire:"<<'\n';
+                for (size_t x = 0; x < tempsimlogs.size(); ++x) {
+                    cout<<tempsimlogs[x].content[0]<<'\n';
+                }
+                cout<<'\n';
+                cout<<"Nombre de récurrence: "<<count<<'\n';
+                cout << "---------------------------" << endl;
+            }
+            count = 0;
+        }
+        tempsimlogs.clear();
     }
 }

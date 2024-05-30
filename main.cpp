@@ -16,13 +16,13 @@ int main(int argc, char *argv[])
     MainWindow w;
 
     ScanErr l;
-    Extractor ex;
     string filePath = "../Log/log_2024-05-22.txt";
     vector<Log> logs = l.readLogsFromFile(filePath);
 
     int similarityThreshold = 65; // Pourcentage de similarité minimum
-    l.findSimilarLogs(logs, similarityThreshold);
-    //ex.LogSpliter();
+    unsigned int recTreshold = 1;
+    vector<Log> fSL=l.findSimilarLogs(logs, similarityThreshold);
+    l.findRecLogs(fSL, recTreshold);
 
 
     w.show();

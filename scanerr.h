@@ -18,7 +18,8 @@ class ScanErr
 public:
     ScanErr();
     vector<Log> readLogsFromFile(const string&);
-    void findSimilarLogs(const vector<Log>&, int);
+    vector<Log> findSimilarLogs(vector<Log>&, int);
+    void findRecLogs(const vector<Log>&, unsigned int);
 
 private:
     int levenshteinDistance(const string&, const string&);
