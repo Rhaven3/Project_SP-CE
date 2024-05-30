@@ -130,7 +130,6 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
                     cout << "Log 2: " << logs[j].content[0] << endl;
                     cout << "Similarity: " << similarity * 100 << "%" << endl;
                     cout << "---------------------------" << endl;
-                    cout << "---------------------------" << endl;
                 }
                 comparedPairs.insert(logPair);
             }
@@ -139,6 +138,10 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
     //storage moy similarity indice
     //
     //
+
+    cout << "---------------------------" << endl;
+    cout<<'\n';
+
     return simlogs;
 }
 
@@ -149,6 +152,8 @@ void ScanErr::findRecLogs(const vector<Log>& logs, unsigned int treshold) {
     vector<Log> tempsimlogs;
     //archivage des logs récurente
     vector<Log> treshlogs;
+    //faut pas se répété
+    set<pair<size_t, size_t>> comparedPairs;
 
     for (size_t i = 0; i < logs.size(); ++i) {
 
@@ -156,26 +161,33 @@ void ScanErr::findRecLogs(const vector<Log>& logs, unsigned int treshold) {
 
         for (size_t j = i + 1; j < logs.size(); ++j) {
 
-            for (unsigned int simid : logs[i].sim_id ) {
+            pair<size_t, size_t> logPair = make_pair(i, j);
+            if (comparedPairs.find(logPair) == comparedPairs.end()) {
+                for (unsigned int simid : logs[i].sim_id ) {
 
-                if (simid == logs[j].id) {
-                    count++;
-                    tempsimlogs.emplace_back(logs[j]);
+                    if (simid == logs[j].id) {
+                        count++;
+                        tempsimlogs.emplace_back(logs[j]);
+
+                    }
                 }
+
+                comparedPairs.insert(logPair);
             }
-            if (count >= treshold) {
-                treshlogs.emplace_back(logs[i]);
-                cout<<"Nombre d'erreur similaire trop important."<<'\n';
-                cout<<"Logs similaire:"<<'\n';
-                for (size_t x = 0; x < tempsimlogs.size(); ++x) {
-                    cout<<tempsimlogs[x].content[0]<<'\n';
-                }
-                cout<<'\n';
-                cout<<"Nombre de récurrence: "<<count<<'\n';
-                cout << "---------------------------" << endl;
-            }
-            count = 0;
         }
+
+        if (count >= treshold) {
+            treshlogs.emplace_back(logs[i]);
+            cout<<"Nombre d'erreur similaire trop important."<<'\n';
+            cout<<"Logs similaire:"<<'\n';
+            for (size_t x = 0; x < tempsimlogs.size(); ++x) {
+                cout<<tempsimlogs[x].content[0]<<'\n';
+            }
+            cout<<'\n';
+            cout<<"Nombre de récurrence: "<<count<<'\n';
+            cout << "---------------------------" << endl;
+        }
+        count = 0;
         tempsimlogs.clear();
     }
 }

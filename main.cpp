@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
     vector<Log> logs = l.readLogsFromFile(filePath);
 
     int similarityThreshold = 65; // Pourcentage de similarité minimum
-    unsigned int recTreshold = 1;
+    unsigned int recTreshold = 3;
     vector<Log> fSL=l.findSimilarLogs(logs, similarityThreshold);
-    l.findRecLogs(fSL, recTreshold);
+    //l.findRecLogs(fSL, recTreshold);
 
 
     w.show();
