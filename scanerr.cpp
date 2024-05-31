@@ -80,7 +80,6 @@ vector<Log> ScanErr::readLogsFromFile(const string &filePath) {
 // Fonction pour trouver les llogs similaires
 vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
 
-    set<pair<size_t, size_t>> comparedPairs;
     vector<Log> simlogs;
 
     for (size_t i = 2; i < logs.size(); ++i) {
@@ -93,45 +92,52 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
             //split j
             logs[j].split();
 
-            //vérif double && same article, of, nPanne, comp
-            pair<size_t, size_t> logPair = make_pair(i, j);
-            if (comparedPairs.find(logPair) == comparedPairs.end()) {
+            double similarity = mongeElkanSimilarity(logs[i].content[6], logs[j].content[6]);
+            //si sim_ratio>=treshold && =cArticle && =OF && =nPanne && =comp
+            if ((similarity >= threshold / 100.0)&&
+                logs[i].content[2]==logs[j].content[2]&&
+                logs[i].content[3]==logs[j].content[3]&&
+                logs[i].content[4]==logs[j].content[4]&&
+                logs[i].content[5]==logs[j].content[5])
+            {
+                //ajout id_logs similaire s
+                if (logs[i].sim_id.empty()) {
+                    logs[i].sim_id.push_back(logs[j].id);
+                } else {
+                    unsigned int countsimid=0;
+                    for (size_t x = 0; x < logs[i].sim_id.size(); ++x) {
 
-                double similarity = mongeElkanSimilarity(logs[i].content[6], logs[j].content[6]);
-                //si sim_ratio>=treshold && =cArticle && =OF && =nPanne && =comp
-                if ((similarity >= threshold / 100.0)&&
-                    logs[i].content[2]==logs[j].content[2]&&
-                    logs[i].content[3]==logs[j].content[3]&&
-                    logs[i].content[4]==logs[j].content[4]&&
-                    logs[i].content[5]==logs[j].content[5])
-                {
-                    //ajout id_logs similaire s
-                    if (logs[i].sim_id.empty()) {
+                        if (logs[i].sim_id[x]!=logs[j].id) {
+                            countsimid++;
+                        }
+                    }
+                    if (logs[i].sim_id.size()==countsimid) {
                         logs[i].sim_id.push_back(logs[j].id);
                     }
-                    if (logs[j].sim_id.empty()) {
-                        logs[j].sim_id.push_back(logs[i].id);
-                    }
-
-                    for (size_t x = 0; x < logs[i].sim_id.size(); ++x) {
-                        if (logs[i].sim_id[x]!=logs[j].id) {
-                            logs[i].sim_id.push_back(logs[j].id);
-                        }
-                    }
-                    for (size_t x = 0; x < logs[j].sim_id.size(); ++x) {
-                        if (logs[j].sim_id[x]!=logs[i].id) {
-                            logs[j].sim_id.push_back(logs[i].id);
-                        }
-                    }
-
-                    simlogs.emplace_back(logs[i]);
-                    simlogs.emplace_back(logs[j]);
-                    cout << "Log 1: " << logs[i].content[0] << endl;
-                    cout << "Log 2: " << logs[j].content[0] << endl;
-                    cout << "Similarity: " << similarity * 100 << "%" << endl;
-                    cout << "---------------------------" << endl;
                 }
-                comparedPairs.insert(logPair);
+
+
+                if (logs[j].sim_id.empty()) {
+                    logs[j].sim_id.push_back(logs[i].id);
+                } else {
+                    unsigned int countsimid=0;
+                    for (size_t x = 0; x < logs[j].sim_id.size(); ++x) {
+
+                        if (logs[j].sim_id[x]!=logs[i].id) {
+                            countsimid++;
+                        }
+                    }
+                    if (logs[i].sim_id.size()==countsimid) {
+                        logs[i].sim_id.push_back(logs[j].id);
+                    }
+                }
+
+                simlogs.emplace_back(logs[i]);
+                simlogs.emplace_back(logs[j]);
+                cout << "Log 1: " << logs[i].content[0] << endl;
+                cout << "Log 2: " << logs[j].content[0] << endl;
+                cout << "Similarity: " << similarity * 100 << "%" << endl;
+                cout << "---------------------------" << endl;
             }
         }
     }
@@ -142,52 +148,48 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
     cout << "---------------------------" << endl;
     cout<<'\n';
 
+    for (size_t i = 0; i < simlogs.size(); ++i) {
+        cout<<"log sim: "<<simlogs[i].id<<'\n';
+    }
+
     return simlogs;
 }
 
 void ScanErr::findRecLogs(const vector<Log>& logs, unsigned int treshold) {
 
     //recherche d'id similaire
-    unsigned int count=0;
+    unsigned int count=1;
     vector<Log> tempsimlogs;
     //archivage des logs récurente
     vector<Log> treshlogs;
-    //faut pas se répété
-    set<pair<size_t, size_t>> comparedPairs;
 
     for (size_t i = 0; i < logs.size(); ++i) {
 
         tempsimlogs.emplace_back(logs[i]);
-
         for (size_t j = i + 1; j < logs.size(); ++j) {
 
-            pair<size_t, size_t> logPair = make_pair(i, j);
-            if (comparedPairs.find(logPair) == comparedPairs.end()) {
-                for (unsigned int simid : logs[i].sim_id ) {
+            for (unsigned int simid : logs[i].sim_id ) {
 
-                    if (simid == logs[j].id) {
-                        count++;
-                        tempsimlogs.emplace_back(logs[j]);
-
-                    }
+                cout<<"log "<<i<<": "<<simid<<'\n';
+                if (simid == logs[j].id) {
+                    count++;
+                    tempsimlogs.emplace_back(logs[j]);
                 }
-
-                comparedPairs.insert(logPair);
+            }
+            if (count >= treshold) {
+                treshlogs.emplace_back(logs[i]);
+                cout<<"Nombre d'erreur similaire trop important."<<'\n';
+                cout<<"Logs similaire:"<<'\n';
+                for (size_t x = 0; x < tempsimlogs.size(); ++x) {
+                    cout<<tempsimlogs[x].content[0]<<'\n';
+                }
+                cout<<'\n';
+                cout<<"Nombre de récurrence: "<<count<<'\n';
+                cout << "---------------------------" << endl;
+                count = 1;
             }
         }
 
-        if (count >= treshold) {
-            treshlogs.emplace_back(logs[i]);
-            cout<<"Nombre d'erreur similaire trop important."<<'\n';
-            cout<<"Logs similaire:"<<'\n';
-            for (size_t x = 0; x < tempsimlogs.size(); ++x) {
-                cout<<tempsimlogs[x].content[0]<<'\n';
-            }
-            cout<<'\n';
-            cout<<"Nombre de récurrence: "<<count<<'\n';
-            cout << "---------------------------" << endl;
-        }
-        count = 0;
         tempsimlogs.clear();
     }
 }

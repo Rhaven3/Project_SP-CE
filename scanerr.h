@@ -7,7 +7,6 @@
 #include <algorithm>
 #include <sstream>
 #include <iterator>
-#include <set>
 #include <QString>
 #include <QStringList>
 #include "log.h"
