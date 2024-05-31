@@ -81,8 +81,11 @@ vector<Log> ScanErr::readLogsFromFile(const string &filePath) {
 vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
 
     vector<Log> simlogs;
+    bool simlogbool;
 
     for (size_t i = 2; i < logs.size(); ++i) {
+
+        simlogbool = true;
 
         //split i
         logs[i].split();
@@ -131,9 +134,28 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
                         logs[i].sim_id.push_back(logs[j].id);
                     }
                 }
+                unsigned int countsimlogs=0;
+                for (size_t x = 0; x < simlogs.size(); ++x) {
+                    if (logs[j].id!=simlogs[x].id) {
+                        countsimlogs++;
+                    }
+                }
+                if (countsimlogs==simlogs.size()) {
+                    simlogs.emplace_back(logs[j]);
+                }
+                countsimlogs=0;
+                if (simlogbool) {
+                    for (size_t x = 0; x < simlogs.size(); ++x) {
+                        if (logs[i].id!=simlogs[x].id) {
+                            countsimlogs++;
+                        }
+                    }
+                    if (countsimlogs==simlogs.size()) {
+                        simlogs.emplace_back(logs[i]);
+                        simlogbool = false;
+                    }
+                }
 
-                simlogs.emplace_back(logs[i]);
-                simlogs.emplace_back(logs[j]);
                 cout << "Log 1: " << logs[i].content[0] << endl;
                 cout << "Log 2: " << logs[j].content[0] << endl;
                 cout << "Similarity: " << similarity * 100 << "%" << endl;
@@ -147,10 +169,6 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
 
     cout << "---------------------------" << endl;
     cout<<'\n';
-
-    for (size_t i = 0; i < simlogs.size(); ++i) {
-        cout<<"log sim: "<<simlogs[i].id<<'\n';
-    }
 
     return simlogs;
 }
@@ -170,7 +188,7 @@ void ScanErr::findRecLogs(const vector<Log>& logs, unsigned int treshold) {
 
             for (unsigned int simid : logs[i].sim_id ) {
 
-                cout<<"log "<<i<<": "<<simid<<'\n';
+                //cout<<"log "<<i<<": "<<simid<<'\n';
                 if (simid == logs[j].id) {
                     count++;
                     tempsimlogs.emplace_back(logs[j]);
@@ -186,9 +204,9 @@ void ScanErr::findRecLogs(const vector<Log>& logs, unsigned int treshold) {
                 cout<<'\n';
                 cout<<"Nombre de récurrence: "<<count<<'\n';
                 cout << "---------------------------" << endl;
-                count = 1;
             }
         }
+        count = 1;
 
         tempsimlogs.clear();
     }
