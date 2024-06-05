@@ -20,7 +20,6 @@ void MainWindow::setLogView(const std::string &filePath) {
         content.append(line);
     }
 
-    //localdocument.setHtml(content);
     ui->LogView->setHtml(content);
 }
 
