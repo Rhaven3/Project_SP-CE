@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     addentry.cpp \
     currentdatetime.cpp \
+    edit.cpp \
     extractor.cpp \
     log.cpp \
     logger.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 HEADERS += \
     addentry.h \
     currentdatetime.h \
+    edit.h \
     extractor.h \
     log.h \
     logger.h \
@@ -31,6 +33,7 @@ HEADERS += \
 
 FORMS += \
     addentry.ui \
+    edit.ui \
     mainwindow.ui
 
 # Default rules for deployment.
