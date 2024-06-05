@@ -14,8 +14,8 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,11 +24,10 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *butAddEntry;
+    QPushButton *butEdit;
+    QPushButton *butScan;
+    QTextEdit *LogView;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -39,23 +38,32 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        scrollArea = new QScrollArea(centralwidget);
-        scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(280, 30, 511, 521));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 509, 519));
-        scrollArea->setWidget(scrollAreaWidgetContents);
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(14, 30, 241, 51));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(14, 90, 241, 51));
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(14, 150, 241, 51));
+        butAddEntry = new QPushButton(centralwidget);
+        butAddEntry->setObjectName("butAddEntry");
+        butAddEntry->setGeometry(QRect(14, 30, 241, 51));
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(butAddEntry->sizePolicy().hasHeightForWidth());
+        butAddEntry->setSizePolicy(sizePolicy);
+        butEdit = new QPushButton(centralwidget);
+        butEdit->setObjectName("butEdit");
+        butEdit->setGeometry(QRect(14, 90, 241, 51));
+        sizePolicy.setHeightForWidth(butEdit->sizePolicy().hasHeightForWidth());
+        butEdit->setSizePolicy(sizePolicy);
+        butScan = new QPushButton(centralwidget);
+        butScan->setObjectName("butScan");
+        butScan->setGeometry(QRect(14, 150, 241, 51));
+        sizePolicy.setHeightForWidth(butScan->sizePolicy().hasHeightForWidth());
+        butScan->setSizePolicy(sizePolicy);
+        LogView = new QTextEdit(centralwidget);
+        LogView->setObjectName("LogView");
+        LogView->setGeometry(QRect(290, 30, 491, 521));
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(LogView->sizePolicy().hasHeightForWidth());
+        LogView->setSizePolicy(sizePolicy1);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -73,9 +81,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Add Entry", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "Scan", nullptr));
+        butAddEntry->setText(QCoreApplication::translate("MainWindow", "Add Entry", nullptr));
+        butEdit->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
+        butScan->setText(QCoreApplication::translate("MainWindow", "Scan", nullptr));
     } // retranslateUi
 
 };

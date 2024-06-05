@@ -21,10 +21,10 @@ int main(int argc, char *argv[])
 
     int similarityThreshold = 65; // Pourcentage de similarité minimum
     unsigned int recTreshold = 3;
-    vector<Log> fSL=l.findSimilarLogs(logs, similarityThreshold);
-    l.findRecLogs(fSL, recTreshold);
+    //vector<Log> fSL=l.findSimilarLogs(logs, similarityThreshold);
+    //l.findRecLogs(fSL, recTreshold);
 
-
+    w.setLogView(filePath);
     w.show();
     return a.exec();
 }
