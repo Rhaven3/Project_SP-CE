@@ -50,6 +50,7 @@ public:
     QComboBox *comboComp;
     QLabel *label_9;
     QComboBox *comboCarte;
+    QRadioButton *R0;
 
     void setupUi(QDialog *addEntry)
     {
@@ -143,6 +144,9 @@ public:
         comboCarte = new QComboBox(addEntry);
         comboCarte->setObjectName("comboCarte");
         comboCarte->setGeometry(QRect(290, 200, 101, 22));
+        R0 = new QRadioButton(addEntry);
+        R0->setObjectName("R0");
+        R0->setGeometry(QRect(20, 240, 89, 20));
 
         retranslateUi(addEntry);
         QObject::connect(buttonBox, &QDialogButtonBox::accepted, addEntry, qOverload<>(&QDialog::accept));
@@ -169,6 +173,7 @@ public:
         R6->setText(QCoreApplication::translate("addEntry", "R\303\251sType6", nullptr));
         label_8->setText(QCoreApplication::translate("addEntry", "indice", nullptr));
         label_9->setText(QCoreApplication::translate("addEntry", "n\302\260Carte", nullptr));
+        R0->setText(QCoreApplication::translate("addEntry", "Non R\303\251solu", nullptr));
     } // retranslateUi
 
 };

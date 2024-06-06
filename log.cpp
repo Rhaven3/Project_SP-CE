@@ -1,4 +1,5 @@
 #include "log.h"
+Log::Log() : similarity(0), id(0), sim_id(), line(""){}
 
 Log::Log(double csim, unsigned int cid,vector<unsigned int>& csim_id, string& ccontent) {
     similarity = csim;
@@ -6,12 +7,12 @@ Log::Log(double csim, unsigned int cid,vector<unsigned int>& csim_id, string& cc
     sim_id = csim_id;
 
     line = ccontent;
-    //Log entière / date / nCarte/ cArticle / OF / FIC / °FIC / nPanne / comp / FlagD / Resolution / commentaire
+    //Log entière / date / nCarte/ cArticle / OF / FIC / °FIC / nPanne / comp / FlagD / commentaire
 }
 
 void Log::split() const {
 
-    array<string, 12> localContent;
+    array<string, 11> localContent;
     localContent[0] = line;
 
     //split
@@ -30,9 +31,8 @@ void Log::split() const {
     localContent[7] = QlogL.at(5).toStdString(); //nPanne
     localContent[8] = QlogL.at(6).toStdString(); //comp
     localContent[9] = QlogL.at(7).toStdString(); // FlagD
-    localContent[10] = QlogL.at(8).toStdString(); //Resolution
-    localContent[11] = QlogL.at(9).toStdString(); //commentaire
+    localContent[10] = QlogL.at(8).toStdString(); //commentaire
 
     // Réassigner les valeurs modifiées à content
-    const_cast<array<string, 12>&>(content) = localContent;
+    const_cast<array<string, 11>&>(content) = localContent;
 }

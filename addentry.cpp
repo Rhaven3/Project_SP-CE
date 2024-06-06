@@ -1,11 +1,16 @@
 #include "addentry.h"
 #include "ui_addentry.h"
 
+
 addEntry::addEntry(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::addEntry)
+    , ui(new Ui::addEntry),
+    Entry()
 {
+
     ui->setupUi(this);
+    ui->comboCarte->addItem("...");
+    ui->comboComp->addItem(". . .");
 }
 
 addEntry::~addEntry()
@@ -16,18 +21,34 @@ addEntry::~addEntry()
 void addEntry::on_lineArticle_textChanged(const QString &arg1)
 {
     QString shish=arg1;
+    QStringList C1 = {"Carte n1", "Carte n2", "Carte n3"}, C2 = {"Carte n4", "Carte n5", "Carte n6"}, C3 = {"Carte n7", "Carte n8", "Carte n9"};
+    QStringList B1 = {"Composant n1", "Composant n2", "Composant n3"}, B2 = {"Composant n4", "Composant n5", "Composant n6"}, B3 = {"Composant n7", "Composant n8", "Composant n9"};
     ui->Commentaire->insertHtml(shish);
     switch (arg1.toInt())
     {
         case 1:
-            shish="shish2";
-            ui->Commentaire->insertHtml(shish);
+            ui->comboCarte->clear();
+            ui->comboCarte->addItems(C1);
+            ui->comboComp->clear();
+            ui->comboComp->addItems(B1);
             break;
         case 2:
+            ui->comboCarte->clear();
+            ui->comboCarte->addItems(C2);
+            ui->comboComp->clear();
+            ui->comboComp->addItems(B2);
             break;
         case 3:
+            ui->comboCarte->clear();
+            ui->comboCarte->addItems(C3);
+            ui->comboComp->clear();
+            ui->comboComp->addItems(B3);
             break;
         default:
+            ui->comboCarte->clear();
+            ui->comboCarte->addItem("...");
+            ui->comboComp->clear();
+            ui->comboComp->addItem(". . .");
             break;
     }
 }
@@ -35,6 +56,23 @@ void addEntry::on_lineArticle_textChanged(const QString &arg1)
 
 void addEntry::on_buttonBox_accepted()
 {
-
+    Entry.content = {"",
+                     ui->dateTimeEdit->dateTime().toString().toStdString(),
+                     ui->comboCarte->currentText().toStdString(),
+                     ui->lineArticle->displayText().toStdString(),
+                     "OF",
+                     ui->lineFIC->displayText().toStdString(),
+                     ui->lineiFIC->displayText().toStdString(),
+                     ui->linePanne->displayText().toStdString(),
+                     ui->comboComp->currentText().toStdString(),
+                     "FlagD",
+                     "Resolution / "+ui->Commentaire->toMarkdown().toStdString()
+    };
+    for (string con : Entry.content) {
+        cout<<con<<'\n';
+    }
 }
 
+const Log addEntry::getEntry() {
+    return Entry;
+}

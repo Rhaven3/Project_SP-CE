@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <iostream>
+#include "log.h"
 
 namespace Ui {
 class addEntry;
@@ -15,6 +16,7 @@ class addEntry : public QDialog
 public:
     explicit addEntry(QWidget *parent = nullptr);
     ~addEntry();
+    const Log getEntry();
 
 private slots:
     void on_lineArticle_textChanged(const QString &arg1);
@@ -22,6 +24,8 @@ private slots:
 
 private:
     Ui::addEntry *ui;
+    Log Entry;
+
 
 };
 

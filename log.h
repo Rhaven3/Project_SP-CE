@@ -17,9 +17,10 @@ public:
     double similarity;
     unsigned int id;
     vector<unsigned int> sim_id;
-    array<string, 12> content;
+    array<string, 11> content;
 
     //constructor
+    Log ();
     Log (double, unsigned int, vector<unsigned int>&, string&);
     //function
     void split() const;

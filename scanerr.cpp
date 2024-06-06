@@ -93,7 +93,7 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
             //split j
             logs[j].split();
 
-            double similarity = mongeElkanSimilarity(logs[i].content[11], logs[j].content[11]);
+            double similarity = mongeElkanSimilarity(logs[i].content[10], logs[j].content[10]);
             //si sim_ratio>=treshold && =nCarte && =cArticle && =nPanne && =comp
             if ((similarity >= threshold / 100.0)&&
                 logs[i].content[2]==logs[j].content[2]&&
