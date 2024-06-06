@@ -2,6 +2,7 @@
 #define ADDENTRY_H
 
 #include <QDialog>
+#include <iostream>
 
 namespace Ui {
 class addEntry;
@@ -15,8 +16,13 @@ public:
     explicit addEntry(QWidget *parent = nullptr);
     ~addEntry();
 
+private slots:
+    void on_lineArticle_textChanged(const QString &arg1);
+    void on_buttonBox_accepted();
+
 private:
     Ui::addEntry *ui;
+
 };
 
 #endif // ADDENTRY_H

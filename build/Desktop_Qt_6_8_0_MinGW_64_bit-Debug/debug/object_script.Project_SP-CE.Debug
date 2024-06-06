@@ -3,6 +3,7 @@ debug/currentdatetime.o
 debug/edit.o
 debug/extractor.o
 debug/log.o
+debug/logchoice.o
 debug/logger.o
 debug/main.o
 debug/mainwindow.o
@@ -10,4 +11,5 @@ debug/scanerr.o
 debug/test.o
 debug/moc_addentry.o
 debug/moc_edit.o
+debug/moc_logchoice.o
 debug/moc_mainwindow.o

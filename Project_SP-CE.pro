@@ -14,6 +14,7 @@ SOURCES += \
     edit.cpp \
     extractor.cpp \
     log.cpp \
+    logchoice.cpp \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     edit.h \
     extractor.h \
     log.h \
+    logchoice.h \
     logger.h \
     mainwindow.h \
     scanerr.h \
@@ -34,6 +36,7 @@ HEADERS += \
 FORMS += \
     addentry.ui \
     edit.ui \
+    logchoice.ui \
     mainwindow.ui
 
 # Default rules for deployment.

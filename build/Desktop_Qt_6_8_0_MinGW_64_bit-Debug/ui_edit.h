@@ -12,9 +12,9 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAbstractButton>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QDialogButtonBox>
-#include <QtWidgets/QFontComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QTextEdit>
@@ -26,8 +26,6 @@ class Ui_Edit
 public:
     QDialogButtonBox *buttonBox;
     QLabel *label;
-    QFontComboBox *fontComboBox;
-    QFontComboBox *fontComboBox_2;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
     QTextEdit *textEdit;
@@ -35,6 +33,8 @@ public:
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
+    QComboBox *comboBox;
+    QComboBox *comboBox_2;
 
     void setupUi(QDialog *Edit)
     {
@@ -52,12 +52,6 @@ public:
         QFont font;
         font.setPointSize(12);
         label->setFont(font);
-        fontComboBox = new QFontComboBox(Edit);
-        fontComboBox->setObjectName("fontComboBox");
-        fontComboBox->setGeometry(QRect(30, 60, 151, 22));
-        fontComboBox_2 = new QFontComboBox(Edit);
-        fontComboBox_2->setObjectName("fontComboBox_2");
-        fontComboBox_2->setGeometry(QRect(30, 120, 151, 22));
         lineEdit = new QLineEdit(Edit);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(30, 180, 151, 22));
@@ -83,6 +77,12 @@ public:
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(60, 200, 91, 31));
         label_5->setFont(font);
+        comboBox = new QComboBox(Edit);
+        comboBox->setObjectName("comboBox");
+        comboBox->setGeometry(QRect(30, 60, 151, 22));
+        comboBox_2 = new QComboBox(Edit);
+        comboBox_2->setObjectName("comboBox_2");
+        comboBox_2->setGeometry(QRect(30, 120, 151, 22));
 
         retranslateUi(Edit);
         QObject::connect(buttonBox, &QDialogButtonBox::accepted, Edit, qOverload<>(&QDialog::accept));

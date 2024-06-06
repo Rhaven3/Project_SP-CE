@@ -10,20 +10,19 @@
 using namespace std;
 
 class Log {
+    string line;
+
 public:
     //constructor var
     double similarity;
     unsigned int id;
     vector<unsigned int> sim_id;
-    array<string, 7> content;
+    array<string, 12> content;
 
     //constructor
-    Log (double, unsigned int, vector<unsigned int>&, array<string, 7>);
+    Log (double, unsigned int, vector<unsigned int>&, string&);
     //function
     void split() const;
-
-private:
-
 };
 
 #endif // LOG_H

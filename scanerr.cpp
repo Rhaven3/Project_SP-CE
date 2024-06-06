@@ -64,11 +64,9 @@ vector<Log> ScanErr::readLogsFromFile(const string &filePath) {
     }
 
     unsigned int id=1;
-    array<string, 7> content = {line, "", "", "", "", "", ""};
     vector<unsigned int> sim_id;
     while (getline(file, line)) {
-        content = {line, "", "", "", "", "", ""};
-        logs.emplace_back(0.0, id, sim_id, content);
+        logs.emplace_back(0.0, id, sim_id, line);
         id++;
     }
 
@@ -95,13 +93,13 @@ vector<Log> ScanErr::findSimilarLogs(vector<Log> &logs, int threshold) {
             //split j
             logs[j].split();
 
-            double similarity = mongeElkanSimilarity(logs[i].content[6], logs[j].content[6]);
-            //si sim_ratio>=treshold && =cArticle && =OF && =nPanne && =comp
+            double similarity = mongeElkanSimilarity(logs[i].content[11], logs[j].content[11]);
+            //si sim_ratio>=treshold && =nCarte && =cArticle && =nPanne && =comp
             if ((similarity >= threshold / 100.0)&&
                 logs[i].content[2]==logs[j].content[2]&&
                 logs[i].content[3]==logs[j].content[3]&&
-                logs[i].content[4]==logs[j].content[4]&&
-                logs[i].content[5]==logs[j].content[5])
+                logs[i].content[7]==logs[j].content[7]&&
+                logs[i].content[8]==logs[j].content[8])
             {
                 //ajout id_logs similaire s
                 if (logs[i].sim_id.empty()) {

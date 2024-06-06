@@ -3,6 +3,7 @@ release/currentdatetime.o
 release/edit.o
 release/extractor.o
 release/log.o
+release/logchoice.o
 release/logger.o
 release/main.o
 release/mainwindow.o
@@ -10,4 +11,5 @@ release/scanerr.o
 release/test.o
 release/moc_addentry.o
 release/moc_edit.o
+release/moc_logchoice.o
 release/moc_mainwindow.o

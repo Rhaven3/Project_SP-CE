@@ -1,16 +1,18 @@
 #include "log.h"
 
-Log::Log(double csim, unsigned int cid,vector<unsigned int>& csim_id, array<string, 7> ccontent) {
+Log::Log(double csim, unsigned int cid,vector<unsigned int>& csim_id, string& ccontent) {
     similarity = csim;
     id = cid;
     sim_id = csim_id;
-    //Log entière / date / cArticle / OF / nPanne / comp / commentaire
-    content = ccontent;
+
+    line = ccontent;
+    //Log entière / date / nCarte/ cArticle / OF / FIC / °FIC / nPanne / comp / FlagD / Resolution / commentaire
 }
 
 void Log::split() const {
 
-    array<string, 7> localContent = content;
+    array<string, 12> localContent;
+    localContent[0] = line;
 
     //split
     QString Qlog;
@@ -20,12 +22,17 @@ void Log::split() const {
     QlogL = QlogL1.at(1).split(u'|');
 
     localContent[1] = QlogL1.at(0).toStdString(); //Date
-    localContent[2] = QlogL.at(0).toStdString(); // cArticle
-    localContent[3] = QlogL.at(1).toStdString(); // OF
-    localContent[4] = QlogL.at(2).toStdString(); //nPanne
-    localContent[5] = QlogL.at(3).toStdString(); //comp
-    localContent[6] = QlogL.at(4).toStdString(); //commentaire
+    localContent[2] = QlogL.at(0).toStdString(); //nCarte
+    localContent[3] = QlogL.at(1).toStdString(); // cArticle
+    localContent[4] = QlogL.at(2).toStdString(); // OF
+    localContent[5] = QlogL.at(3).toStdString(); // FIC
+    localContent[6] = QlogL.at(4).toStdString(); // °FIC
+    localContent[7] = QlogL.at(5).toStdString(); //nPanne
+    localContent[8] = QlogL.at(6).toStdString(); //comp
+    localContent[9] = QlogL.at(7).toStdString(); // FlagD
+    localContent[10] = QlogL.at(8).toStdString(); //Resolution
+    localContent[11] = QlogL.at(9).toStdString(); //commentaire
 
     // Réassigner les valeurs modifiées à content
-    const_cast<array<string, 7>&>(content) = localContent;
+    const_cast<array<string, 12>&>(content) = localContent;
 }
