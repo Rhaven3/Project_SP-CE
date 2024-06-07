@@ -7,6 +7,7 @@
 #include <iostream>
 #include "addentry.h"
 #include "edit.h"
+#include "logchoice.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -32,5 +33,7 @@ private:
     Ui::MainWindow *ui;
     addEntry *addEntryDialog;
     Edit *EditDialog;
+    LogChoice *LogCDialog;
+
 };
 #endif // MAINWINDOW_H

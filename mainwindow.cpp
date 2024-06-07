@@ -2,7 +2,11 @@
 #include "ui_mainwindow.h"
 
 
+
 void MainWindow::setLogView(const std::string &filePath) {
+    LogCDialog = new LogChoice(this);
+    LogCDialog->show();
+
     QString content, line, t="<br><hr>";
     std::string sline;
     std::ifstream file(filePath);
@@ -22,6 +26,7 @@ void MainWindow::setLogView(const std::string &filePath) {
 
     ui->LogView->setHtml(content);
 }
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

@@ -30,6 +30,7 @@ void Log::split() const {
                       QString::fromStdString(localContent[0]);
         ErrorD->SetMsg(msg);
         ErrorD->show();
+        return;
     } else {
         localContent[1] = QlogL1.at(0).toStdString(); //Date
         localContent[2] = QlogL.at(0).toStdString(); //nCarte
