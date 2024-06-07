@@ -7,11 +7,10 @@
 #include <QStringList>
 #include <array>
 #include <iostream>
+#include "error.h"
 using namespace std;
 
 class Log {
-    string line;
-
 public:
     //constructor var
     double similarity;
@@ -24,6 +23,8 @@ public:
     Log (double, unsigned int, vector<unsigned int>&, string&);
     //function
     void split() const;
+private:
+    string line;
 };
 
 #endif // LOG_H

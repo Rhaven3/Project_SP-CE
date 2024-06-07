@@ -1,5 +1,6 @@
 //src
 #include "mainwindow.h"
+#include "error.h"
 #include "scanerr.h"
 #include "extractor.h"
 

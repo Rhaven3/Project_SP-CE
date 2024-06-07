@@ -1,6 +1,7 @@
 release/addentry.o
 release/currentdatetime.o
 release/edit.o
+release/error.o
 release/extractor.o
 release/log.o
 release/logchoice.o
@@ -11,5 +12,6 @@ release/scanerr.o
 release/test.o
 release/moc_addentry.o
 release/moc_edit.o
+release/moc_error.o
 release/moc_logchoice.o
 release/moc_mainwindow.o

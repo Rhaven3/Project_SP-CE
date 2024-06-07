@@ -1,6 +1,7 @@
 debug/addentry.o
 debug/currentdatetime.o
 debug/edit.o
+debug/error.o
 debug/extractor.o
 debug/log.o
 debug/logchoice.o
@@ -11,5 +12,6 @@ debug/scanerr.o
 debug/test.o
 debug/moc_addentry.o
 debug/moc_edit.o
+debug/moc_error.o
 debug/moc_logchoice.o
 debug/moc_mainwindow.o
