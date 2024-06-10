@@ -528,3 +528,9 @@ date	code Article | n°OF | N°Panne | Composant Concerné | Commentaire
 2024-05-23 11:54:39	138259755 | 1698958 | 87 | 8 | 94911576375933170441788103632896
 2024-05-23 11:54:39	442090425 | 58859 | 35 | 88 | 64735973252419883763732737010279930551446205789501462594516597398876928390938624
 2024-05-23 11:54:39	305548761 | 26479 | 57 | 70 | 700030456146213753424109059806
+Thu Feb 1 18:22:00 2024	Carte n5|2|OF|f0511|51|21|Composant n6|FlagD|Resolution / En vrai c'est ez nan ?
+Wed Feb 2 05:20:00 2000	Carte n5|2|OF|dd45|205|66|Composant n6|FlagD|Resolution / ugyugjgjhsgdgjhssfsf
+Sat Jan 1 00:00:00 2000	Carte n1|1|OF|ff|ff|21|Composant n3|FlagD|Resolution / hsdqufhdsfkhsfkjqsfhkjh
+Sat Jan 1 00:00:00 2000	...||OF||||. . .|FlagD|Resolution / 
+Sat Jan 1 00:00:00 2000	...||OF||||. . .|FlagD|Resolution / 
+Sat Jan 1 00:00:00 2000	...||OF||||. . .|FlagD|Resolution / 

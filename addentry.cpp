@@ -2,12 +2,12 @@
 #include "ui_addentry.h"
 
 
-addEntry::addEntry(QWidget *parent)
+addEntry::addEntry(MainWindow *parent)
     : QDialog(parent)
     , ui(new Ui::addEntry),
     Entry()
 {
-
+    mainWindow = parent;
     ui->setupUi(this);
     ui->comboCarte->addItem("...");
     ui->comboComp->addItem(". . .");
@@ -68,11 +68,20 @@ void addEntry::on_buttonBox_accepted()
                      "FlagD",
                      "Resolution / "+ui->Commentaire->toMarkdown().toStdString()
     };
-    for (string con : Entry.content) {
-        cout<<con<<'\n';
-    }
+
+    ofstream ofs(mainWindow->filePath.c_str(), std::ios_base::out | std::ios_base::app );
+    //change file
+    ofs << '\n'<< Entry.content[1] +"\t"+ Entry.content[2] + "|" + Entry.content[3] + "|" + Entry.content[4] + "|" + Entry.content[5] + "|" + Entry.content[6] + "|" + Entry.content[7] +"|"+ Entry.content[8] + "|"+ Entry.content[9] +"|"+ Entry.content[10];
+    ofs.close();
+    //change view
+    QString content = QString::fromStdString(Entry.content[1] +"\t"+ Entry.content[2] + "|" + Entry.content[3] + "|" + Entry.content[4] + "|" + Entry.content[5] + "|" + Entry.content[6] + "|" + Entry.content[7] +"|"+ Entry.content[8] + "|"+ Entry.content[9] +"|"+ Entry.content[10] + "<br><hr>");
+    mainWindow->addLog(content);
 }
 
 const Log addEntry::getEntry() {
     return Entry;
+}
+
+const void addEntry::add_Entry() {
+
 }

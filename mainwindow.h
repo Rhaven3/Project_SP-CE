@@ -10,6 +10,9 @@
 #include "logchoice.h"
 
 QT_BEGIN_NAMESPACE
+
+class addEntry;
+
 namespace Ui {
 class MainWindow;
 }
@@ -23,8 +26,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    std::string filePath;
+
 public slots:
     void setLogView();
+    void addLog(QString&);
 
 private slots:
     void on_butAddEntry_clicked();
@@ -36,8 +42,7 @@ private:
     addEntry *addEntryDialog;
     Edit *EditDialog;
     LogChoice *LogCDialog;
-
-    std::string filePath;
+    QString content;
 
 };
 #endif // MAINWINDOW_H

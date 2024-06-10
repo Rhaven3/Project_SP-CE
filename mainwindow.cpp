@@ -1,9 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+void MainWindow::addLog(QString& Entry) {
+    content.append(Entry);
+    ui->LogView->setHtml(content);
+    ui->LogView->moveCursor(QTextCursor::End);
+}
 
 void MainWindow::setLogView() {
-    QString content, line, t="<br><hr>";
+    QString line, t="<br><hr>";
     std::string sline;
 
     filePath = LogCDialog->filePath;
@@ -21,8 +26,8 @@ void MainWindow::setLogView() {
         (x>=2) ? line += t : line;
         content.append(line);
     }
-
     ui->LogView->setHtml(content);
+    ui->LogView->moveCursor(QTextCursor::End);
 }
 
 

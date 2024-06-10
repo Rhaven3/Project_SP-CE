@@ -44,7 +44,7 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(LogChoice);
         label->setObjectName("label");
-        label->setGeometry(QRect(60, 20, 261, 16));
+        label->setGeometry(QRect(60, 20, 261, 21));
         QFont font;
         font.setPointSize(12);
         label->setFont(font);
