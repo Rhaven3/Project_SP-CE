@@ -20,9 +20,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    void setLogView(const std::string&);
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public slots:
+    void setLogView();
 
 private slots:
     void on_butAddEntry_clicked();
@@ -34,6 +36,8 @@ private:
     addEntry *addEntryDialog;
     Edit *EditDialog;
     LogChoice *LogCDialog;
+
+    std::string filePath;
 
 };
 #endif // MAINWINDOW_H

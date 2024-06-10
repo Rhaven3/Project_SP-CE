@@ -1,4 +1,5 @@
 #include "logchoice.h"
+#include "error.h"
 #include "ui_logchoice.h"
 
 LogChoice::LogChoice(QWidget *parent)
@@ -29,32 +30,21 @@ void LogChoice::on_Depanned_clicked()
 }
 
 
-void LogChoice::on_Search_editingFinished()
+
+void LogChoice::on_Search_textChanged(const QString &arg1)
 {
-    // Store the name in a member variable, eg a map between names and login names
-    namesMap.insert(name, loginName);
 
-    QString currentString = ebt->text();
-    if (currentString.isEmpty())
-    {
-        QComboBox::keyPressEvent(evt);
-        return;
-    }
-
-    // Iterate through the map and search for the given name
-    QMapIterator<QString, QString> it(namesMap);
-    while(it.hasNext())
-    {
-        it.next();
-        QString name = it.key();
-        if (name.contains(currentString))
-        {
-            // it.value() is the login name corresponding to the name
-            // we have to find its index in the combo box in order to select it
-            int itemIndex = findText(it.value());
-            if (itemIndex >= 0)
-                setCurrentIndex(itemIndex);
-            return;
-        }
 }
 
+
+void LogChoice::on_buttonBox_accepted()
+{
+    QString msg = "Es-ce que ça marche ?";
+    Error *ErrorD;
+    ErrorD = new Error(this);
+    ErrorD->SetMsg(msg);
+    ErrorD->show();
+
+    filePath = "../Log/log_2024-05-22.txt";
+    //return filePath = ui->comboSearch->currentText();
+}

@@ -2,13 +2,11 @@
 #include "ui_mainwindow.h"
 
 
-
-void MainWindow::setLogView(const std::string &filePath) {
-    LogCDialog = new LogChoice(this);
-    LogCDialog->show();
-
+void MainWindow::setLogView() {
     QString content, line, t="<br><hr>";
     std::string sline;
+
+    filePath = LogCDialog->filePath;
     std::ifstream file(filePath);
 
 
@@ -36,6 +34,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     //LogView
     ui->LogView->setReadOnly(true);
+    LogCDialog = new LogChoice(this);
+    connect(LogCDialog, &LogChoice::accepted, LogCDialog, &LogChoice::on_buttonBox_accepted);
+    connect(LogCDialog, &LogChoice::accepted, this, &MainWindow::setLogView);
+
+    LogCDialog->show();
 }
 
 MainWindow::~MainWindow()

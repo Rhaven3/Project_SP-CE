@@ -24,8 +24,6 @@ int main(int argc, char *argv[])
     unsigned int recTreshold = 3;
     //vector<Log> fSL=l.findSimilarLogs(logs, similarityThreshold);
     //l.findRecLogs(fSL, recTreshold);
-
-    w.setLogView(filePath);
     w.show();
     return a.exec();
 }
