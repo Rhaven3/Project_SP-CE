@@ -6,7 +6,8 @@
 #include <iostream>
 #include <sys/stat.h>
 #include <cstdlib>
-using namespace std;
+#include <string>
+using std::string;
 
 class Logger
 {

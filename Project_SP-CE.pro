@@ -19,6 +19,7 @@ SOURCES += \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
+    mongeelkan.cpp \
     scanerr.cpp \
     test.cpp
 
@@ -32,6 +33,7 @@ HEADERS += \
     logchoice.h \
     logger.h \
     mainwindow.h \
+    mongeelkan.h \
     scanerr.h \
     test.h
 

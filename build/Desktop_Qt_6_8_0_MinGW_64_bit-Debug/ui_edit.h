@@ -26,15 +26,15 @@ class Ui_Edit
 public:
     QDialogButtonBox *buttonBox;
     QLabel *label;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
-    QTextEdit *textEdit;
+    QLineEdit *linePanne;
+    QLineEdit *lineComp;
+    QTextEdit *Commentaire;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label_4;
     QLabel *label_5;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
+    QComboBox *comboDate;
+    QComboBox *comboOF;
 
     void setupUi(QDialog *Edit)
     {
@@ -52,22 +52,22 @@ public:
         QFont font;
         font.setPointSize(12);
         label->setFont(font);
-        lineEdit = new QLineEdit(Edit);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(30, 180, 151, 22));
-        lineEdit_2 = new QLineEdit(Edit);
-        lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(30, 240, 151, 22));
-        textEdit = new QTextEdit(Edit);
-        textEdit->setObjectName("textEdit");
-        textEdit->setGeometry(QRect(220, 50, 161, 201));
+        linePanne = new QLineEdit(Edit);
+        linePanne->setObjectName("linePanne");
+        linePanne->setGeometry(QRect(30, 181, 151, 21));
+        lineComp = new QLineEdit(Edit);
+        lineComp->setObjectName("lineComp");
+        lineComp->setGeometry(QRect(30, 240, 151, 22));
+        Commentaire = new QTextEdit(Edit);
+        Commentaire->setObjectName("Commentaire");
+        Commentaire->setGeometry(QRect(220, 50, 161, 201));
         label_2 = new QLabel(Edit);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(60, 20, 81, 31));
+        label_2->setGeometry(QRect(70, 80, 81, 31));
         label_2->setFont(font);
         label_3 = new QLabel(Edit);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(90, 80, 31, 31));
+        label_3->setGeometry(QRect(90, 20, 31, 31));
         label_3->setFont(font);
         label_4 = new QLabel(Edit);
         label_4->setObjectName("label_4");
@@ -77,12 +77,12 @@ public:
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(60, 200, 91, 31));
         label_5->setFont(font);
-        comboBox = new QComboBox(Edit);
-        comboBox->setObjectName("comboBox");
-        comboBox->setGeometry(QRect(30, 60, 151, 22));
-        comboBox_2 = new QComboBox(Edit);
-        comboBox_2->setObjectName("comboBox_2");
-        comboBox_2->setGeometry(QRect(30, 120, 151, 22));
+        comboDate = new QComboBox(Edit);
+        comboDate->setObjectName("comboDate");
+        comboDate->setGeometry(QRect(30, 120, 151, 22));
+        comboOF = new QComboBox(Edit);
+        comboOF->setObjectName("comboOF");
+        comboOF->setGeometry(QRect(30, 60, 151, 22));
 
         retranslateUi(Edit);
         QObject::connect(buttonBox, &QDialogButtonBox::accepted, Edit, qOverload<>(&QDialog::accept));
@@ -95,6 +95,7 @@ public:
     {
         Edit->setWindowTitle(QCoreApplication::translate("Edit", "Dialog", nullptr));
         label->setText(QCoreApplication::translate("Edit", "Commentaire", nullptr));
+        linePanne->setText(QString());
         label_2->setText(QCoreApplication::translate("Edit", "D\303\242te/Heure", nullptr));
         label_3->setText(QCoreApplication::translate("Edit", "OF", nullptr));
         label_4->setText(QCoreApplication::translate("Edit", "n\302\260Panne", nullptr));

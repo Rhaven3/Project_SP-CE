@@ -8,6 +8,7 @@ release/logchoice.o
 release/logger.o
 release/main.o
 release/mainwindow.o
+release/mongeelkan.o
 release/scanerr.o
 release/test.o
 release/moc_addentry.o

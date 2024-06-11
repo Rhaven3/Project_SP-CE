@@ -9,7 +9,11 @@ addEntry::addEntry(MainWindow *parent)
 {
     mainWindow = parent;
     ui->setupUi(this);
+
+    ui->comboCarte->setEditable(true);
     ui->comboCarte->addItem("...");
+
+    ui->comboComp->setEditable(true);
     ui->comboComp->addItem(". . .");
 }
 

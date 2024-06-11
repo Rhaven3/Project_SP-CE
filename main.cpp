@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
 
     ScanErr l;
     string filePath = "../Log/log_2024-05-22.txt";
-    vector<Log> logs = l.readLogsFromFile(filePath);
+    //vector<Log> logs = l.readLogsFromFile(filePath);
 
-    int similarityThreshold = 65; // Pourcentage de similarité minimum
-    unsigned int recTreshold = 3;
+    //int similarityThreshold = 65; // Pourcentage de similarité minimum
+    //unsigned int recTreshold = 3;
     //vector<Log> fSL=l.findSimilarLogs(logs, similarityThreshold);
     //l.findRecLogs(fSL, recTreshold);
     w.show();

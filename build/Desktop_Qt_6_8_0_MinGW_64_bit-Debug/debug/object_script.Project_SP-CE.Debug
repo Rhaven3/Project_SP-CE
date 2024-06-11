@@ -8,6 +8,7 @@ debug/logchoice.o
 debug/logger.o
 debug/main.o
 debug/mainwindow.o
+debug/mongeelkan.o
 debug/scanerr.o
 debug/test.o
 debug/moc_addentry.o

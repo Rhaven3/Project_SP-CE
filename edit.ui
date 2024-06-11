@@ -47,17 +47,20 @@
     <string>Commentaire</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="linePanne">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>180</y>
+     <y>181</y>
      <width>151</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="lineComp">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -67,7 +70,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="Commentaire">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -80,8 +83,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>20</y>
+     <x>70</x>
+     <y>80</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -99,7 +102,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>80</y>
+     <y>20</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -149,21 +152,21 @@
     <string>Composant</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="comboDate">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>60</y>
+     <y>120</y>
      <width>151</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
+  <widget class="QComboBox" name="comboOF">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>120</y>
+     <y>60</y>
      <width>151</width>
      <height>22</height>
     </rect>
