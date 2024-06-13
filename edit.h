@@ -1,8 +1,14 @@
 #ifndef EDIT_H
 #define EDIT_H
 
+#include <fstream>
 #include <QDialog>
+#include <unordered_set>
 #include "mongeelkan.h"
+#include "mainwindow.h"
+#include "log.h"
+
+class MainWindow;
 
 namespace Ui {
 class Edit;
@@ -13,7 +19,7 @@ class Edit : public QDialog
     Q_OBJECT
 
 public:
-    explicit Edit(QWidget *parent = nullptr);
+    explicit Edit(MainWindow *parent = nullptr);
     ~Edit();
 
 private slots:
@@ -23,6 +29,12 @@ private slots:
 
 private:
     Ui::Edit *ui;
+    MainWindow *mainWindow;
+    vector<string> OFs;
+    vector<ContentLog> Logs;
+    vector<string> extractOF();
+    vector<ContentLog> extractDate();
+
 };
 
 #endif // EDIT_H

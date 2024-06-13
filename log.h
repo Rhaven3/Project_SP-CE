@@ -27,4 +27,9 @@ private:
     string line;
 };
 
+struct ContentLog {
+    array<string, 11> content;
+    void split() const;
+};
+
 #endif // LOG_H

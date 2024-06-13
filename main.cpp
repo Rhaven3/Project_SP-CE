@@ -1,14 +1,14 @@
 //src
+
 #include "mainwindow.h"
 #include "error.h"
 #include "scanerr.h"
 #include "extractor.h"
 
+#include <string>
 //default
 #include <QApplication>
 #include <iostream>
-
-using namespace std;
 
 
 int main(int argc, char *argv[])
@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 
     ScanErr l;
     string filePath = "../Log/log_2024-05-22.txt";
+
+
     //vector<Log> logs = l.readLogsFromFile(filePath);
 
     //int similarityThreshold = 65; // Pourcentage de similarité minimum

@@ -12,6 +12,7 @@
 QT_BEGIN_NAMESPACE
 
 class addEntry;
+class Edit;
 
 namespace Ui {
 class MainWindow;

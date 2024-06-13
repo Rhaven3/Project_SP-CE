@@ -40,6 +40,6 @@ void LogChoice::on_Search_textChanged(const QString &arg1)
 void LogChoice::on_buttonBox_accepted()
 {
 
-    filePath = "../Log/log_2024-05-22.txt";
+    filePath = "../Log/Depannage.txt";
     //return filePath = ui->comboSearch->currentText();
 }
