@@ -29,6 +29,7 @@ void Edit::on_comboOF_currentTextChanged(const QString &arg1)
 {
     QStringList simOF, simDate;
     string Sarg1 = arg1.toStdString();
+    QString test;
 
 //search OF
     for (string OF : OFs) {
@@ -54,13 +55,14 @@ void Edit::on_comboOF_currentTextChanged(const QString &arg1)
 //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 //search Date en fonction de OF
-    std::unordered_set<std::string> OFset(OFs.begin(),OFs.end());
     for (ContentLog log : Logs) {
 
-        if (OFset.find(log.content[4]) != OFset.end()) {
-            simDate.append(QString::fromStdString(log.content[0]));
+        if (ui->comboOF->currentText().toStdString() == log.content[4]) {
+            simDate.append(QString::fromStdString(log.content[1]));
         }
     }
+    ui->Commentaire->clear();
+    ui->Commentaire->setHtml(test);
 
 // Affichage Date
     disconnect(ui->comboDate, SIGNAL(currentTextChanged(QString)),
@@ -72,6 +74,25 @@ void Edit::on_comboOF_currentTextChanged(const QString &arg1)
 
     connect(ui->comboDate, SIGNAL(currentTextChanged(QString)),
             this, SLOT(on_comboDate_currentTextChanged(QString)));
+
+// Save var
+    ContentLog localEntry;
+    for (ContentLog log : Logs) {
+        if (log.content[1]==ui->comboDate->currentText().toStdString()&&
+            log.content[4]==ui->comboOF->currentText().toStdString()) {
+            localEntry = log;
+        }
+    }
+    /*
+    Entry.content[1] = localEntry.content[1];
+    Entry.content[2] = localEntry.content[2];
+    Entry.content[3] = localEntry.content[3];
+    Entry.content[4] = localEntry.content[4];
+    Entry.content[5] = localEntry.content[5];
+    Entry.content[6] = localEntry.content[6];
+    Entry.content[2] = localEntry.content[2];
+    Entry.content[2] = localEntry.content[2];
+*/
 }
 
 
@@ -118,6 +139,8 @@ void Edit::on_comboDate_currentTextChanged(const QString &arg1)
     ui->comboDate->clear();
     ui->comboDate->addItems(simDate);
     */
+
+// Affichage
 }
 
 
@@ -145,17 +168,14 @@ vector<ContentLog> Edit::extractDate() {
     vector<ContentLog> logs;
     string line;
 
-
     while (getline(file, line)) {
-        if (line=="") {
-            continue;
-        } else {
-            ContentLog templine;
-            templine.content[0] = line;
-            templine.split();
-            logs.emplace_back(templine);
-        }
-    }
+        if (line=="") {continue;}
 
+        ContentLog templine;
+        templine.content[0] = line;
+        templine.split();
+        logs.emplace_back(templine);
+
+    }
     return logs;
 }

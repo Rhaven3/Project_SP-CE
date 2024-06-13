@@ -82,7 +82,7 @@ void addEntry::on_buttonBox_accepted()
     mainWindow->addLog(content);
 }
 
-const Log addEntry::getEntry() {
+const ContentLog addEntry::getEntry() {
     return Entry;
 }
 

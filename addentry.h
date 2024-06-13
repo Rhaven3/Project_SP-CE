@@ -2,7 +2,6 @@
 #define ADDENTRY_H
 
 #include <QDialog>
-#include <iostream>
 #include "log.h"
 #include "mainwindow.h"
 
@@ -19,7 +18,7 @@ class addEntry : public QDialog
 public:
     explicit addEntry(MainWindow *parent = nullptr);
     ~addEntry();
-    const Log getEntry();
+    const ContentLog getEntry();
     const void add_Entry();
 
 private slots:
@@ -28,7 +27,7 @@ private slots:
 
 private:
     Ui::addEntry *ui;
-    Log Entry;
+    ContentLog Entry;
     MainWindow *mainWindow;
 
 

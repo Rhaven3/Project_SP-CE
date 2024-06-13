@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+
 #include "addentry.h"
 #include "edit.h"
 #include "logchoice.h"

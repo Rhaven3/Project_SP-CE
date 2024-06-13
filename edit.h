@@ -1,10 +1,8 @@
 #ifndef EDIT_H
 #define EDIT_H
 
-#include <fstream>
+
 #include <QDialog>
-#include <unordered_set>
-#include "mongeelkan.h"
 #include "mainwindow.h"
 #include "log.h"
 
@@ -32,6 +30,7 @@ private:
     MainWindow *mainWindow;
     vector<string> OFs;
     vector<ContentLog> Logs;
+    Log EditedEntry;
     vector<string> extractOF();
     vector<ContentLog> extractDate();
 

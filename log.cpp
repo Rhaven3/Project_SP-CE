@@ -31,19 +31,17 @@ void Log::split() const {
         ErrorD->SetMsg(msg);
         ErrorD->show();
         return;
-    } else {
-        localContent[1] = QlogL1.at(0).toStdString(); //Date
-        localContent[2] = QlogL.at(0).toStdString(); //nCarte
-        localContent[3] = QlogL.at(1).toStdString(); // cArticle
-        localContent[4] = QlogL.at(2).toStdString(); // OF
-        localContent[5] = QlogL.at(3).toStdString(); // FIC
-        localContent[6] = QlogL.at(4).toStdString(); // °FIC
-        localContent[7] = QlogL.at(5).toStdString(); //nPanne
-        localContent[8] = QlogL.at(6).toStdString(); //comp
-        localContent[9] = QlogL.at(7).toStdString(); // FlagD
-        localContent[10] = QlogL.at(8).toStdString(); //commentaire
     }
-
+    localContent[1] = QlogL1.at(0).toStdString(); //Date
+    localContent[2] = QlogL.at(0).toStdString(); //nCarte
+    localContent[3] = QlogL.at(1).toStdString(); // cArticle
+    localContent[4] = QlogL.at(2).toStdString(); // OF
+    localContent[5] = QlogL.at(3).toStdString(); // FIC
+    localContent[6] = QlogL.at(4).toStdString(); // °FIC
+    localContent[7] = QlogL.at(5).toStdString(); //nPanne
+    localContent[8] = QlogL.at(6).toStdString(); //comp
+    localContent[9] = QlogL.at(7).toStdString(); // FlagD
+    localContent[10] = QlogL.at(8).toStdString(); //commentaire
 
     // Réassigner les valeurs modifiées à content
     const_cast<array<string, 11>&>(content) = localContent;
