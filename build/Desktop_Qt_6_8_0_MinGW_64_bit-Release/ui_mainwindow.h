@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -25,9 +27,10 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QPushButton *butAddEntry;
-    QPushButton *butEdit;
     QPushButton *butScan;
     QTextEdit *LogView;
+    QComboBox *comboCarte;
+    QLabel *label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -40,30 +43,34 @@ public:
         centralwidget->setObjectName("centralwidget");
         butAddEntry = new QPushButton(centralwidget);
         butAddEntry->setObjectName("butAddEntry");
-        butAddEntry->setGeometry(QRect(14, 30, 241, 51));
+        butAddEntry->setGeometry(QRect(30, 500, 241, 51));
         QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(butAddEntry->sizePolicy().hasHeightForWidth());
         butAddEntry->setSizePolicy(sizePolicy);
-        butEdit = new QPushButton(centralwidget);
-        butEdit->setObjectName("butEdit");
-        butEdit->setGeometry(QRect(14, 90, 241, 51));
-        sizePolicy.setHeightForWidth(butEdit->sizePolicy().hasHeightForWidth());
-        butEdit->setSizePolicy(sizePolicy);
         butScan = new QPushButton(centralwidget);
         butScan->setObjectName("butScan");
-        butScan->setGeometry(QRect(14, 150, 241, 51));
+        butScan->setGeometry(QRect(530, 500, 241, 51));
         sizePolicy.setHeightForWidth(butScan->sizePolicy().hasHeightForWidth());
         butScan->setSizePolicy(sizePolicy);
         LogView = new QTextEdit(centralwidget);
         LogView->setObjectName("LogView");
-        LogView->setGeometry(QRect(290, 30, 491, 521));
+        LogView->setGeometry(QRect(30, 20, 741, 461));
         QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(LogView->sizePolicy().hasHeightForWidth());
         LogView->setSizePolicy(sizePolicy1);
+        comboCarte = new QComboBox(centralwidget);
+        comboCarte->setObjectName("comboCarte");
+        comboCarte->setGeometry(QRect(290, 521, 221, 31));
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(340, 490, 121, 21));
+        QFont font;
+        font.setPointSize(11);
+        label->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -81,9 +88,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        butAddEntry->setText(QCoreApplication::translate("MainWindow", "Add Entry", nullptr));
-        butEdit->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
-        butScan->setText(QCoreApplication::translate("MainWindow", "Scan", nullptr));
+        butAddEntry->setText(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
+        butScan->setText(QCoreApplication::translate("MainWindow", "Recherche de R\303\251currence", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Carte S\303\251lectionn\303\251", nullptr));
     } // retranslateUi
 
 };

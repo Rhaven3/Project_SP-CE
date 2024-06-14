@@ -8,7 +8,6 @@
 
 #include "addentry.h"
 #include "edit.h"
-#include "logchoice.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -43,7 +42,6 @@ private:
     Ui::MainWindow *ui;
     addEntry *addEntryDialog;
     Edit *EditDialog;
-    LogChoice *LogCDialog;
     QString content;
 
 };

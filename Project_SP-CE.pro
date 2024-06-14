@@ -15,7 +15,6 @@ SOURCES += \
     error.cpp \
     extractor.cpp \
     log.cpp \
-    logchoice.cpp \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -30,7 +29,6 @@ HEADERS += \
     error.h \
     extractor.h \
     log.h \
-    logchoice.h \
     logger.h \
     mainwindow.h \
     mongeelkan.h \
@@ -41,7 +39,6 @@ FORMS += \
     addentry.ui \
     edit.ui \
     error.ui \
-    logchoice.ui \
     mainwindow.ui
 
 # Default rules for deployment.

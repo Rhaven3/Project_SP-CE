@@ -1,35 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-void MainWindow::addLog(QString& Entry) {
-    content.append(Entry);
-    ui->LogView->setHtml(content);
-    ui->LogView->moveCursor(QTextCursor::End);
-}
-
-void MainWindow::setLogView() {
-    QString line, t="<br><hr>";
-    std::string sline;
-
-    filePath = LogCDialog->filePath;
-    std::ifstream file(filePath);
-
-
-    if (!file.is_open()) {
-        std::cerr << "Erreur lors de l'ouverture du fichier : " << filePath << std::endl;
-    }
-
-    int x=0;
-    while (std::getline(file, sline)) {
-        line = QString::fromStdString(sline);
-        x++;
-        (x>=2) ? line += t : line;
-        content.append(line);
-    }
-    ui->LogView->setHtml(content);
-    ui->LogView->moveCursor(QTextCursor::End);
-}
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -37,15 +8,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    filePath = "../Log/Depannage.txt";
+
     //LogView
     ui->LogView->setReadOnly(true);
-    LogCDialog = new LogChoice(this);
-    connect(LogCDialog, &LogChoice::accepted, LogCDialog, &LogChoice::on_buttonBox_accepted);
-    connect(LogCDialog, &LogChoice::accepted, this, &MainWindow::setLogView);
+    setLogView();
 
-    LogCDialog->show();
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -70,3 +39,31 @@ void MainWindow::on_butScan_clicked()
 
 }
 
+void MainWindow::addLog(QString& Entry) {
+    content.append(Entry);
+    ui->LogView->setHtml(content);
+    ui->LogView->moveCursor(QTextCursor::End);
+}
+
+void MainWindow::setLogView() {
+    QString line, t="<br><hr>";
+    std::string sline;
+
+    std::ifstream file(filePath);
+
+
+    if (!file.is_open()) {
+        std::cerr << "Erreur lors de l'ouverture du fichier : " << filePath << std::endl;
+        return;
+    }
+
+    int x=0;
+    while (std::getline(file, sline)) {
+        line = QString::fromStdString(sline);
+        x++;
+        (x>=2) ? line += t : line;
+        content.append(line);
+    }
+    ui->LogView->setHtml(content);
+    ui->LogView->moveCursor(QTextCursor::End);
+}
