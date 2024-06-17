@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 //default
 #include <QApplication>
+#include <QtCharts>
 #include <iostream>
 
 

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,14 +9,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addentry.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    scan.cpp
 
 HEADERS += \
-    mainwindow.h
+    addentry.h \
+    mainwindow.h \
+    scan.h
 
 FORMS += \
-    mainwindow.ui
+    addentry.ui \
+    mainwindow.ui \
+    scan.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
