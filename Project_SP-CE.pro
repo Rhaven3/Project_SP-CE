@@ -10,12 +10,16 @@ CONFIG += c++17
 
 SOURCES += \
     addentry.cpp \
+    log.cpp \
+    logger.cpp \
     main.cpp \
     mainwindow.cpp \
     scan.cpp
 
 HEADERS += \
     addentry.h \
+    log.h \
+    logger.h \
     mainwindow.h \
     scan.h
 

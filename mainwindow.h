@@ -26,10 +26,15 @@ private slots:
 
     void on_butRec_clicked();
 
+    void on_comboCarte_currentTextChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
+    //Dialog
     addEntry *EntryDialog;
     Scan *ScanDialog;
+    //var
+    QString Carte;
 };
 
 #endif // MAINWINDOW_H

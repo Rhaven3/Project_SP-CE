@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->comboCarte->setEditable(true);
 }
 
 MainWindow::~MainWindow()
@@ -25,5 +26,12 @@ void MainWindow::on_butRec_clicked()
 {
     ScanDialog = new Scan(this);
     ScanDialog->show();
+}
+
+
+void MainWindow::on_comboCarte_currentTextChanged(const QString &arg1)
+{
+    Carte = arg1;
+
 }
 

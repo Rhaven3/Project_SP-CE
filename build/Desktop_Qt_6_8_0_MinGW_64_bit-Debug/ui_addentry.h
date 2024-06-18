@@ -48,8 +48,6 @@ public:
     QComboBox *comboYear;
     QComboBox *comboDay;
     QComboBox *comboMonth;
-    QFrame *editDate;
-    QComboBox *comboeditDate;
     QFrame *addDatePlus;
     QCalendarWidget *calendarDate;
     QComboBox *comboCarte;
@@ -141,14 +139,6 @@ public:
         comboMonth = new QComboBox(addDate);
         comboMonth->setObjectName("comboMonth");
         comboMonth->setGeometry(QRect(40, 0, 41, 22));
-        editDate = new QFrame(addEntry);
-        editDate->setObjectName("editDate");
-        editDate->setGeometry(QRect(300, 50, 151, 41));
-        editDate->setFrameShape(QFrame::StyledPanel);
-        editDate->setFrameShadow(QFrame::Raised);
-        comboeditDate = new QComboBox(editDate);
-        comboeditDate->setObjectName("comboeditDate");
-        comboeditDate->setGeometry(QRect(0, 0, 151, 21));
         addDatePlus = new QFrame(addEntry);
         addDatePlus->setObjectName("addDatePlus");
         addDatePlus->setGeometry(QRect(10, 80, 291, 191));
@@ -182,7 +172,6 @@ public:
         ComRes->raise();
         label_5->raise();
         addDate->raise();
-        editDate->raise();
         comboCarte->raise();
         comboComp->raise();
         label_7->raise();

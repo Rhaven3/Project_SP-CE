@@ -310,32 +310,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="editDate">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>50</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QComboBox" name="comboeditDate">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>151</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
   <widget class="QFrame" name="addDatePlus">
    <property name="geometry">
     <rect>
@@ -434,7 +408,6 @@
   <zorder>ComRes</zorder>
   <zorder>label_5</zorder>
   <zorder>addDate</zorder>
-  <zorder>editDate</zorder>
   <zorder>comboCarte</zorder>
   <zorder>comboComp</zorder>
   <zorder>label_7</zorder>
