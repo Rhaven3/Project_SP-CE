@@ -35,6 +35,8 @@ private slots:
 
     void on_comboCarte_currentTextChanged(const QString &arg1);
 
+    void on_tableLogs_cellClicked(int row, int column);
+
 private:
     Ui::MainWindow *ui;
     //Dialog

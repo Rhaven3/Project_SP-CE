@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
         "Commentaire"
     };
     ui->tableLogs->setHorizontalHeaderLabels(columnNames);
+    ui->tableLogs->setEditTriggers(QAbstractItemView::NoEditTriggers);
     setTableLogs();
 
 }
@@ -39,23 +40,19 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::setTableLogs() {
-    struct pos {
-        unsigned int row;
-        unsigned int column;
-    };
 
-    unsigned row=0;
+    unsigned int row=0;
     for (Log log : logger->fileContent) {
+
+        log.setRow(row);
+
         for (unsigned int index=0; index<log.content.size(); ++index) {
+            log.setContentTableColumn(index, index);
 
-            pos Logpos;
-            Logpos.row = row;
-            Logpos.column = index;
-
-            QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(pow(Logpos.row, Logpos.column)));
+            QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(pow(log.logRow, log.getContentTableColumn(index))));
             newItem->setText(log.content[index]);
 
-            ui->tableLogs->setItem(Logpos.row, Logpos.column, newItem);
+            ui->tableLogs->setItem(log.logRow, log.getContentTableColumn(index), newItem);
         }
         row++;
     }
@@ -79,5 +76,11 @@ void MainWindow::on_butRec_clicked()
 void MainWindow::on_comboCarte_currentTextChanged(const QString &arg1)
 {
     Carte = arg1;
+}
+
+
+void MainWindow::on_tableLogs_cellClicked(int row, int column)
+{
+
 }
 

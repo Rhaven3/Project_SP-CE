@@ -10,7 +10,6 @@
  */
 class Log
 {
-
     QString line;
 
 public:
@@ -50,12 +49,21 @@ public:
     static constexpr unsigned short content_length =16;
     std::array<QString, content_length> content;
 
+    const unsigned int logRow =0;
+
     /**
      * @brief split
      * split the entire Log in different item in content
      */
     void split() const;
 
+    void setContentTableColumn(unsigned int index,unsigned int column);
+    void setRow(unsigned int row);
+
+    unsigned int getContentTableColumn(unsigned int index);
+
+private:
+    std::array<unsigned int, content_length> ContentTableColumn;
 };
 
 #endif // LOG_H

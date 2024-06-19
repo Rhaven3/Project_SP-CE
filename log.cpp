@@ -48,3 +48,15 @@ void Log::split() const {
     // Réassigner les valeurs modifiées à content
     const_cast<std::array<QString, content_length>&>(content) = localContent;
 }
+
+void Log::setContentTableColumn(unsigned int index, unsigned int column) {
+    ContentTableColumn[index] = column;
+}
+
+unsigned int Log::getContentTableColumn(unsigned int index) {
+    return ContentTableColumn[index];
+}
+
+void Log::setRow(unsigned int row) {
+    const_cast<unsigned int&>(logRow) = row;
+}
