@@ -5,6 +5,9 @@
 //Dialog
 #include "addentry.h"
 #include "scan.h"
+#include "logger.h"
+
+class Logger;
 
 namespace Ui {
 class MainWindow;
@@ -16,10 +19,14 @@ class Scan;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QString filePath = "../Log/Depannage.txt";
+
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    Logger *logger = new Logger(filePath);
 
 private slots:
     void on_butEntry_clicked();
@@ -35,6 +42,8 @@ private:
     Scan *ScanDialog;
     //var
     QString Carte;
+
+    void setTableLogs();
 };
 
 #endif // MAINWINDOW_H

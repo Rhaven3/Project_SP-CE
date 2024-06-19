@@ -1,22 +1,26 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <QString>
 #include <fstream>
+#include "log.h"
+
+class Log;
 
 class Logger
 {
     QString filePath;
-    QString fileContent;
-
+    void Counting();
 public:
     Logger(
         const QString& filepath,
         const QString& format=""
         );
 
+    const unsigned int lineCount=0;
+    const std::vector<Log> fileContent;
 
-    QString extract(
+
+    std::vector<Log> extract(
         const QString& filepath,
         const QString& format= "",
         const unsigned short header= 0

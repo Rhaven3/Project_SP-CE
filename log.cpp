@@ -15,11 +15,13 @@ void Log::split() const {
     std::array<QString, content_length> localContent;
     localContent[0] = line;
 
+    if (line=="") {
+        return;
+    }
+
     //split
-    QString Qlog;
     QStringList QlogL1, QlogL;
-    Qlog= localContent[0]; //Log entière à split
-    QlogL1 = Qlog.split(u'\t');
+    QlogL1 = localContent[0].split(u'\t');
     QlogL = QlogL1.at(1).split(u'|');
 
     /*

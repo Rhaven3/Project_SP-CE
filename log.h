@@ -1,8 +1,6 @@
 #ifndef LOG_H
 #define LOG_H
 
-#include <vector>
-#include <string>
 #include <QString>
 #include <QStringList>
 
@@ -12,17 +10,12 @@
  */
 class Log
 {
-    static constexpr unsigned short content_length = 11;
-    QString line;
 
-    struct coordinate {
-        unsigned int row;
-        unsigned int column;
-    };
+    QString line;
 
 public:
     Log();
-    Log(QString&, unsigned int);
+    Log(QString& log, unsigned int id=0);
 
     /**
      * @brief id
@@ -54,16 +47,15 @@ public:
      * - Flag
      * - Commentaire
      */
+    static constexpr unsigned short content_length =16;
     std::array<QString, content_length> content;
-
-
-    //Log::coordinate log_position;
 
     /**
      * @brief split
      * split the entire Log in different item in content
      */
     void split() const;
+
 };
 
 #endif // LOG_H

@@ -3,15 +3,31 @@
 Logger::Logger(const QString &filepath, const QString &format) {
     filePath = filepath;
 
-    fileContent = extract(filePath, format);
+    Counting();
+    const_cast<std::vector<Log>&>(fileContent) = extract(filePath, format);
 }
 
-QString Logger::extract(const QString &filepath, const QString &format, const unsigned short header) {
-    QString line, content;
+std::vector<Log> Logger::extract(const QString& filepath, const QString &format, const unsigned short header) {
+    QString line;
+    std::vector<Log> content;
     std::string string_line;
-
-
     std::ifstream file(filepath.toStdString());
+
+    int x=0;
+    while (std::getline(file, string_line)) {
+        line = QString::fromStdString(string_line);
+        x++;
+        (x>=header) ? line += format : line;
+        content.emplace_back(line, x);
+        content[x-1].split();
+    }
+    file.close();
+    return content;
+}
+
+void Logger::Counting() {
+    std::string string_line;
+    std::ifstream file(filePath.toStdString());
 
     /* Message d'erreur à créer
      *
@@ -20,16 +36,11 @@ QString Logger::extract(const QString &filepath, const QString &format, const un
         return;
     }
     */
-    int x=0;
+    unsigned int x=0;
     while (std::getline(file, string_line)) {
-        line = QString::fromStdString(string_line);
-        x++;
-        (x>=header) ? line += format : line;
-        content.append(line);
+        ++x;
     }
-    return content;
-}
 
-void Logger::view() {
-
+    const_cast<unsigned int&>(lineCount) = x;
+    file.close();
 }
