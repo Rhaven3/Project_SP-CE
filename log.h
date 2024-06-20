@@ -49,7 +49,7 @@ public:
     static constexpr unsigned short content_length =16;
     std::array<QString, content_length> content;
 
-    const unsigned int logRow =0;
+    int logRow;
 
     /**
      * @brief split
@@ -58,7 +58,7 @@ public:
     void split() const;
 
     void setContentTableColumn(unsigned int index,unsigned int column);
-    void setRow(unsigned int row);
+    void setRow(int row);
 
     unsigned int getContentTableColumn(unsigned int index);
 

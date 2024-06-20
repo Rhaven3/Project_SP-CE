@@ -17,7 +17,7 @@ public:
         );
 
     const unsigned int lineCount=0;
-    const std::vector<Log> fileContent;
+    std::vector<Log> fileContent;
 
 
     std::vector<Log> extract(

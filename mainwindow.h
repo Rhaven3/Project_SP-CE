@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <iostream>
 //Dialog
 #include "addentry.h"
 #include "scan.h"
@@ -30,12 +31,9 @@ public:
 
 private slots:
     void on_butEntry_clicked();
-
     void on_butRec_clicked();
-
     void on_comboCarte_currentTextChanged(const QString &arg1);
-
-    void on_tableLogs_cellClicked(int row, int column);
+    void on_tableLogs_cellClicked(int row);
 
 private:
     Ui::MainWindow *ui;

@@ -57,6 +57,6 @@ unsigned int Log::getContentTableColumn(unsigned int index) {
     return ContentTableColumn[index];
 }
 
-void Log::setRow(unsigned int row) {
-    const_cast<unsigned int&>(logRow) = row;
+void Log::setRow(int row) {
+    logRow = row;
 }

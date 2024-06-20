@@ -1,10 +1,11 @@
 #include "logger.h"
 
-Logger::Logger(const QString &filepath, const QString &format) {
+Logger::Logger(const QString &filepath, const QString &format)
+{
     filePath = filepath;
 
     Counting();
-    const_cast<std::vector<Log>&>(fileContent) = extract(filePath, format);
+    fileContent = extract(filePath, format);
 }
 
 std::vector<Log> Logger::extract(const QString& filepath, const QString &format, const unsigned short header) {

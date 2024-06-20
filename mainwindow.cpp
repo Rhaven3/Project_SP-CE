@@ -39,14 +39,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::setTableLogs() {
-
-    unsigned int row=0;
-    for (Log log : logger->fileContent) {
-
+void MainWindow::setTableLogs()
+{
+    int row=0;
+    for (Log &log : logger->fileContent)
+    {
         log.setRow(row);
 
-        for (unsigned int index=0; index<log.content.size(); ++index) {
+        for (unsigned int index=0; index<log.content.size(); ++index)
+        {
             log.setContentTableColumn(index, index);
 
             QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(pow(log.logRow, log.getContentTableColumn(index))));
@@ -79,8 +80,14 @@ void MainWindow::on_comboCarte_currentTextChanged(const QString &arg1)
 }
 
 
-void MainWindow::on_tableLogs_cellClicked(int row, int column)
+void MainWindow::on_tableLogs_cellClicked(int row)
 {
-
+    for (Log &log : logger->fileContent)
+    {
+        if (log.logRow == row) {
+            EntryDialog = new addEntry(this);
+            EntryDialog->show();
+        }
+    }
 }
 
