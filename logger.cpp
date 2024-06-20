@@ -6,6 +6,7 @@ Logger::Logger(const QString &filepath, const QString &format)
 
     Counting();
     fileContent = extract(filePath, format);
+    fileCartes = extractCarte();
 }
 
 std::vector<Log> Logger::extract(const QString& filepath, const QString &format, const unsigned short header) {
@@ -44,4 +45,24 @@ void Logger::Counting() {
 
     const_cast<unsigned int&>(lineCount) = x;
     file.close();
+}
+
+QStringList Logger::extractCarte()
+{
+    std::vector<QString> cartes;
+    QStringList cartes_trier;
+
+    for (Log log : fileContent)
+    {
+        cartes.push_back(log.content[2]);
+    }
+
+    for (const auto& carte : cartes)
+    {
+        if (!carteSet.insert(carte).second)
+        {continue;}
+
+        cartes_trier.append(carte);
+    }
+    return cartes_trier;
 }

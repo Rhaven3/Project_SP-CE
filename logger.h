@@ -2,6 +2,7 @@
 #define LOGGER_H
 
 #include <fstream>
+#include <unordered_set>
 #include "log.h"
 
 class Log;
@@ -16,8 +17,11 @@ public:
         const QString& format=""
         );
 
+    std::unordered_set<QString> carteSet;
+
     const unsigned int lineCount=0;
     std::vector<Log> fileContent;
+    QStringList fileCartes;
 
 
     std::vector<Log> extract(
@@ -25,6 +29,8 @@ public:
         const QString& format= "",
         const unsigned short header= 0
         );
+
+    QStringList extractCarte();
 
     void convertCSV();
     void view();

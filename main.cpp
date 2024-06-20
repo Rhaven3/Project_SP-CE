@@ -14,7 +14,7 @@
 //default
 #include <QApplication>
 #include <QtCharts>
-#include <unordered_set>
+
 #include <iostream>
 //macro
 #define DEPRECATED [[deprecated]]
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 void createFile(QString filePath)
 {
     Logger core(filePath);
-    std::vector<QString> cartes, finalcartes;
+    std::vector<QString> cartes;
     std::unordered_set<QString> carteSet;
 
     for (Log log : core.fileContent)

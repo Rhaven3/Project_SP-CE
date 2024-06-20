@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <iostream>
+#include <unordered_set>
 //Dialog
 #include "addentry.h"
 #include "scan.h"
@@ -21,7 +22,22 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     QString filePath = "../Log/Depannage.txt";
-
+    QStringList columnNames = {
+        "Date/Heure",
+        "Numero_AOI",
+        "Code Article",
+        "OF", "FIC",
+        "Indice FIC",
+        "Panne",
+        "Designation Panne",
+        "Mesure",
+        "Limite Min",
+        "Limite Max",
+        "Commentaire",
+        "Composant",
+        "Flag",
+        "Commentaire"
+    };
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -40,8 +56,6 @@ private:
     //Dialog
     addEntry *EntryDialog;
     Scan *ScanDialog;
-    //var
-    QString Carte;
 
     void setTableLogs();
 };

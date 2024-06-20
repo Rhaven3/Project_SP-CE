@@ -9,27 +9,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->comboCarte->setEditable(true);
 
+    //définition des logs
+    ui->comboCarte->addItems(logger->fileCartes);
+    filePath = "../Log/"+ui->comboCarte->currentText()+".txt";
+
+
     //définition de tableLogs
     ui->tableLogs->setColumnCount(Log::content_length-1);
-    ui->tableLogs->setRowCount(logger->lineCount);
-    QStringList columnNames = {
-        "Date/Heure",
-        "Numero_AOI",
-        "Code Article",
-        "OF", "FIC",
-        "Indice FIC",
-        "Panne",
-        "Designation Panne",
-        "Mesure",
-        "Limite Min",
-        "Limite Max",
-        "Commentaire",
-        "Composant",
-        "Flag",
-        "Commentaire"
-    };
-    ui->tableLogs->setHorizontalHeaderLabels(columnNames);
-    ui->tableLogs->setEditTriggers(QAbstractItemView::NoEditTriggers);
     setTableLogs();
 
 }
@@ -41,23 +27,43 @@ MainWindow::~MainWindow()
 
 void MainWindow::setTableLogs()
 {
+    ui->tableLogs->clearContents();
+    logger = new Logger(filePath);
+
+
+    ui->tableLogs->setRowCount(logger->lineCount);
+
+    ui->tableLogs->setHorizontalHeaderLabels(columnNames);
+    ui->tableLogs->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+
+
+
     int row=0;
     for (Log &log : logger->fileContent)
     {
         log.setRow(row);
 
-        for (unsigned int index=0; index<log.content.size(); ++index)
+        for (unsigned int index=1; index<log.content.size(); ++index)
         {
-            log.setContentTableColumn(index, index);
+            log.setContentTableColumn(index, index-1);
 
             QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(pow(log.logRow, log.getContentTableColumn(index))));
             newItem->setText(log.content[index]);
+
+            // edition des Cellules
+
 
             ui->tableLogs->setItem(log.logRow, log.getContentTableColumn(index), newItem);
         }
         row++;
     }
 }
+
+
+
+
+
 
 
 void MainWindow::on_butEntry_clicked()
@@ -76,7 +82,12 @@ void MainWindow::on_butRec_clicked()
 
 void MainWindow::on_comboCarte_currentTextChanged(const QString &arg1)
 {
-    Carte = arg1;
+    if (logger->carteSet.find(arg1) == logger->carteSet.end())
+    {
+        filePath = "../Log/"+ui->comboCarte->currentText()+".txt";
+    }
+
+    setTableLogs();
 }
 
 
