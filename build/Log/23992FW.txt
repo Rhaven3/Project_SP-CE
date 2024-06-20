@@ -1,0 +1,1 @@
+17/06/2024 10:52:32	23992FW|N03569H01|01038790|FIC602445|04|03.02| D�marrage Linux + Login|0|0|0|Erreur : Read() timeout error||0|VP2N
