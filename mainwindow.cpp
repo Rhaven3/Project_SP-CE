@@ -18,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableLogs->setColumnCount(Log::content_length-1);
     setTableLogs();
 
+    //définions Graphs
+    setGraphs();
+
 }
 
 MainWindow::~MainWindow()
@@ -60,7 +63,18 @@ void MainWindow::setTableLogs()
     }
 }
 
+void MainWindow::setGraphs()
+{
+    QGraphicsScene *scenes = new QGraphicsScene();
 
+    // Charger une image
+    QPixmap pixmap("../data/graphExemple.png"); // Remplacez par le chemin de votre image
+
+    // Créer un item pour l'image et l'ajouter à la scèn
+    scenes->addPixmap(pixmap);
+
+    ui->graphic1->setScene(scenes);
+}
 
 
 
@@ -95,7 +109,8 @@ void MainWindow::on_tableLogs_cellClicked(int row)
 {
     for (Log &log : logger->fileContent)
     {
-        if (log.logRow == row) {
+        if (log.logRow == row)
+        {
             EntryDialog = new addEntry(this);
             EntryDialog->show();
         }

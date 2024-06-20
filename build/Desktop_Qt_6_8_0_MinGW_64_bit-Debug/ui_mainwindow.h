@@ -124,7 +124,7 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Les Cartes", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Compteur de Pannes", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Non R\303\251solu", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "textLabel", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
     } // retranslateUi
 

@@ -58,6 +58,7 @@ private:
     Scan *ScanDialog;
 
     void setTableLogs();
+    void setGraphs();
 };
 
 #endif // MAINWINDOW_H

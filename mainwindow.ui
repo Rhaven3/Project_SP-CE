@@ -163,7 +163,7 @@
       </font>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>textLabel</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
