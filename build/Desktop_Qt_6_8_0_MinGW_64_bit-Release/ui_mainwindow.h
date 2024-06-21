@@ -12,12 +12,15 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,11 +29,20 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *butAddEntry;
-    QPushButton *butScan;
-    QTextEdit *LogView;
+    QPushButton *butEntry;
+    QPushButton *butRec;
     QComboBox *comboCarte;
     QLabel *label;
+    QTableWidget *tableLogs;
+    QGroupBox *groupBox;
+    QLCDNumber *NumNRes;
+    QLCDNumber *Num;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
+    QLCDNumber *NumTotal;
+    QLabel *graphic2;
+    QLabel *graphic1;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -38,43 +50,61 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(950, 585);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        butAddEntry = new QPushButton(centralwidget);
-        butAddEntry->setObjectName("butAddEntry");
-        butAddEntry->setGeometry(QRect(30, 500, 241, 51));
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(butAddEntry->sizePolicy().hasHeightForWidth());
-        butAddEntry->setSizePolicy(sizePolicy);
-        butScan = new QPushButton(centralwidget);
-        butScan->setObjectName("butScan");
-        butScan->setGeometry(QRect(530, 500, 241, 51));
-        sizePolicy.setHeightForWidth(butScan->sizePolicy().hasHeightForWidth());
-        butScan->setSizePolicy(sizePolicy);
-        LogView = new QTextEdit(centralwidget);
-        LogView->setObjectName("LogView");
-        LogView->setGeometry(QRect(30, 20, 741, 461));
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(LogView->sizePolicy().hasHeightForWidth());
-        LogView->setSizePolicy(sizePolicy1);
+        butEntry = new QPushButton(centralwidget);
+        butEntry->setObjectName("butEntry");
+        butEntry->setGeometry(QRect(20, 490, 201, 51));
+        butRec = new QPushButton(centralwidget);
+        butRec->setObjectName("butRec");
+        butRec->setGeometry(QRect(440, 490, 201, 51));
         comboCarte = new QComboBox(centralwidget);
         comboCarte->setObjectName("comboCarte");
-        comboCarte->setGeometry(QRect(290, 521, 221, 31));
+        comboCarte->setGeometry(QRect(230, 511, 201, 31));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(340, 490, 121, 21));
+        label->setGeometry(QRect(230, 480, 201, 31));
         QFont font;
-        font.setPointSize(11);
+        font.setPointSize(10);
         label->setFont(font);
+        tableLogs = new QTableWidget(centralwidget);
+        tableLogs->setObjectName("tableLogs");
+        tableLogs->setGeometry(QRect(20, 10, 621, 471));
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName("groupBox");
+        groupBox->setGeometry(QRect(660, 9, 281, 121));
+        NumNRes = new QLCDNumber(groupBox);
+        NumNRes->setObjectName("NumNRes");
+        NumNRes->setGeometry(QRect(110, 60, 151, 23));
+        Num = new QLCDNumber(groupBox);
+        Num->setObjectName("Num");
+        Num->setGeometry(QRect(110, 90, 151, 23));
+        label_2 = new QLabel(groupBox);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(30, 60, 71, 20));
+        label_2->setFont(font);
+        label_3 = new QLabel(groupBox);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(28, 90, 61, 20));
+        label_3->setFont(font);
+        label_4 = new QLabel(groupBox);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(40, 30, 49, 16));
+        label_4->setFont(font);
+        NumTotal = new QLCDNumber(groupBox);
+        NumTotal->setObjectName("NumTotal");
+        NumTotal->setGeometry(QRect(110, 30, 151, 23));
+        graphic2 = new QLabel(centralwidget);
+        graphic2->setObjectName("graphic2");
+        graphic2->setGeometry(QRect(660, 350, 281, 191));
+        graphic1 = new QLabel(centralwidget);
+        graphic1->setObjectName("graphic1");
+        graphic1->setGeometry(QRect(660, 140, 281, 191));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 950, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -88,9 +118,15 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        butAddEntry->setText(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
-        butScan->setText(QCoreApplication::translate("MainWindow", "Recherche de R\303\251currence", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Carte S\303\251lectionn\303\251", nullptr));
+        butEntry->setText(QCoreApplication::translate("MainWindow", "Ajouter / Modifier", nullptr));
+        butRec->setText(QCoreApplication::translate("MainWindow", "Recherche de R\303\251curence", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Les Cartes", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "Compteur de Pannes", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Non R\303\251solu", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "textLabel", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
+        graphic2->setText(QString());
+        graphic1->setText(QString());
     } // retranslateUi
 
 };

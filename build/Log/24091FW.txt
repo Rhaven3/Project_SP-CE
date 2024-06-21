@@ -1,0 +1,2 @@
+17/06/2024 12:15:59	24091FW|N03569H01|01038790|FIC602445|04|03.02| D�marrage Linux + Login|0|0|0|Erreur : Read() timeout error||0|VP2N
+17/06/2024 13:03:34	24091FW|N03569H01|01038790|FIC602445|04|03.02| D�marrage Linux + Login|0|0|0|Erreur : Read() timeout error||0|VP2N

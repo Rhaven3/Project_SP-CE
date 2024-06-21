@@ -2,47 +2,71 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <fstream>
-#include <sstream>
 #include <iostream>
-
+#include <unordered_set>
+//Dialog
 #include "addentry.h"
-#include "edit.h"
+#include "scan.h"
+#include "logger.h"
 
-QT_BEGIN_NAMESPACE
-
-class addEntry;
-class Edit;
+class Logger;
 
 namespace Ui {
 class MainWindow;
 }
-QT_END_NAMESPACE
+
+class addEntry;
+class Scan;
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QString
+        filePath = "../Log/Depannage.txt",
+        dirLogPath = "../Log/",
+        formatFile = ".txt",
+        graph1Path = "../data/graph1Exemple.png",
+        graph2Path = "../data/graphExemple.png";
+
+    QStringList columnNames = {
+        "Date/Heure",
+        "Numero_AOI",
+        "Code Article",
+        "OF", "FIC",
+        "Indice FIC",
+        "Panne",
+        "Designation Panne",
+        "Mesure",
+        "Limite Min",
+        "Limite Max",
+        "Commentaire",
+        "Composant",
+        "Flag",
+        "Commentaire"
+    };
+
+    QPixmap graph1, graph2;
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    std::string filePath;
-
-public slots:
-    void setLogView();
-    void addLog(QString&);
+    Logger *logger = new Logger(filePath);
 
 private slots:
-    void on_butAddEntry_clicked();
-    void on_butEdit_clicked();
-    void on_butScan_clicked();
+    void on_butEntry_clicked();
+    void on_butRec_clicked();
+    void on_comboCarte_currentTextChanged(const QString &arg1);
+    void on_tableLogs_cellClicked(int row);
 
 private:
     Ui::MainWindow *ui;
-    addEntry *addEntryDialog;
-    Edit *EditDialog;
-    QString content;
+    //Dialog
+    addEntry *EntryDialog;
+    Scan *ScanDialog;
 
+    void setTableLogs();
+    void setGraphs();
 };
+
 #endif // MAINWINDOW_H

@@ -1,0 +1,1 @@
+13/06/2024 08:18:08	21991FW|X04244G01|01043081|FIC596456|05|xA4.02|HandScope 0X5042 : MEAS:PTP? INT1|0|9.53901e-312|0|Le d�lai d'attente (timeout) a expir� avant que l'op�ration ne soit achev�e.||0|VP3N

@@ -1,53 +1,71 @@
 #include "logger.h"
-#include "currentdatetime.h"
 
-Logger::Logger() {}
+Logger::Logger(const QString &filepath, const QString &format)
+{
+    filePath = filepath;
 
-//is logFile is Empty
-bool Logger::isLogFileEmpty(const string& filePath) {
-    ifstream ifs(filePath.c_str());
-    return ifs.peek() == ifstream::traits_type::eof();;
+    Counting();
+    fileContent = extract(filePath, format);
+    fileCartes = extractCarte();
 }
 
-// Create directory if it doesn't exist
-void Logger::createDirectory(const string& dirPath) {
-    struct stat info;
-    if (stat(dirPath.c_str(), &info) != 0) {
-        if (mkdir(dirPath.c_str()) != 0) {
-            cerr << "Error creating directory: " << strerror(errno) << endl;
-        }
-    } else if (!(info.st_mode & S_IFDIR)) {
-        cerr << dirPath << " exists but is not a directory" << endl;
+std::vector<Log> Logger::extract(const QString& filepath, const QString &format, const unsigned short header) {
+    QString line;
+    std::vector<Log> content;
+    std::string string_line;
+    std::ifstream file(filepath.toStdString());
+
+    int x=0;
+    while (std::getline(file, string_line)) {
+        line = QString::fromStdString(string_line);
+        x++;
+        (x>=header) ? line += format : line;
+        content.emplace_back(line, x);
+        content[x-1].split();
     }
+    file.close();
+    return content;
 }
 
-//with log msg
-void Logger::lPrint(string logMsg){
-    //path
-    string logDir = "../Log/";
-    Logger::createDirectory(logDir);
-    string filePath = logDir + "log_"+getCurrentDateTime("date")+".txt";
-        //creation
-    ofstream ofs(filePath.c_str(), std::ios_base::out | std::ios_base::app );
-        //msg
-    bool isEmpty = Logger::isLogFileEmpty(filePath);
-    (isEmpty) ? ofs<<"date \t | \t code Article | n°OF | N°Panne | Composant Concerné | Commentaire \n\n" : ofs;
-    ofs << date << '\t' << logMsg << '\n';
-    ofs.close();
+void Logger::Counting() {
+    std::string string_line;
+    std::ifstream file(filePath.toStdString());
+
+    /* Message d'erreur à créer
+     *
+    if (!file.is_open()) {
+        std::cerr << "Erreur lors de l'ouverture du fichier : " << filePath << std::endl;
+        return;
+    }
+    */
+    unsigned int x=0;
+    while (std::getline(file, string_line)) {
+        ++x;
+    }
+
+    const_cast<unsigned int&>(lineCount) = x;
+    file.close();
 }
 
-//default
-void Logger::lPrint(){
-    //path
-    Log= cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
-    string logDir = "../Log/";
-    Logger::createDirectory(logDir);
-    string filePath = logDir + "log_"+getCurrentDateTime("date")+".txt";
-        //creation
-    ofstream ofs(filePath.c_str(), std::ios_base::out | std::ios_base::app );
-        //msg
-    bool isEmpty = Logger::isLogFileEmpty(filePath);
-    (isEmpty) ? ofs<<"date \t | \t code Article | n°OF | N°Panne | Composant Concerné | Commentaire \n\n" : ofs;
-    ofs << date << '\t' << Log << '\n';
-    ofs.close();
+QStringList Logger::extractCarte()
+{
+    std::vector<QString> cartes;
+    QStringList cartes_trier;
+
+    //test
+    cartes_trier.append("test");
+
+    for (Log log : fileContent)
+    {
+        cartes.push_back(log.content[2]);
+    }
+
+    for (const auto& carte : cartes)
+    {
+        if (!carteSet.insert(carte).second)
+        {continue;}
+
+        cartes_trier.append(carte);
+    }
+    return cartes_trier;
 }

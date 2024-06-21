@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,36 +10,23 @@ CONFIG += c++17
 
 SOURCES += \
     addentry.cpp \
-    currentdatetime.cpp \
-    edit.cpp \
-    error.cpp \
-    extractor.cpp \
     log.cpp \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
-    mongeelkan.cpp \
-    scanerr.cpp \
-    test.cpp
+    scan.cpp
 
 HEADERS += \
     addentry.h \
-    currentdatetime.h \
-    edit.h \
-    error.h \
-    extractor.h \
     log.h \
     logger.h \
     mainwindow.h \
-    mongeelkan.h \
-    scanerr.h \
-    test.h
+    scan.h
 
 FORMS += \
     addentry.ui \
-    edit.ui \
-    error.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    scan.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

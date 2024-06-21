@@ -1,31 +1,41 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-
 #include <fstream>
-#include <iostream>
-#include <sys/stat.h>
-#include <cstdlib>
-#include <string>
-using std::string;
+#include <unordered_set>
+#include "log.h"
+
+class Log;
 
 class Logger
 {
+    QString filePath;
+    void Counting();
 public:
-    Logger();
-    string date,cArticle, OF, nPanne, comp, commentaire;
-    // 1 | 2 | 3 | 4 | 5
-    string Log= cArticle + " | " + OF + " | " + nPanne + " | " + comp + " | " + commentaire;
+    Logger(
+        const QString& filepath,
+        const QString& format=""
+        );
+
+    std::unordered_set<QString> carteSet;
+
+    const unsigned int lineCount=0;
+    std::vector<Log> fileContent;
+    QStringList fileCartes;
 
 
-    void lPrint(string);
-    void lPrint();
+    std::vector<Log> extract(
+        const QString& filepath,
+        const QString& format= "",
+        const unsigned short header= 0
+        );
 
-private:
-    //function
-    bool isLogFileEmpty(const string&);
-    void createDirectory(const string&);
+    QStringList extractCarte();
 
+    void convertCSV();
+    void view();
+    void scan();
+    void graph();
 };
 
 #endif // LOGGER_H

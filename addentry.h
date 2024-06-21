@@ -2,10 +2,6 @@
 #define ADDENTRY_H
 
 #include <QDialog>
-#include "log.h"
-#include "mainwindow.h"
-
-class MainWindow;
 
 namespace Ui {
 class addEntry;
@@ -16,21 +12,17 @@ class addEntry : public QDialog
     Q_OBJECT
 
 public:
-    explicit addEntry(MainWindow *parent = nullptr);
+    explicit addEntry(QWidget *parent = nullptr);
     ~addEntry();
-    const ContentLog getEntry();
-    const void add_Entry();
 
 private slots:
-    void on_lineArticle_textChanged(const QString &arg1);
+    void on_comboCarte_currentTextChanged(const QString &arg1);
     void on_buttonBox_accepted();
+    void on_comboState_currentTextChanged(const QString &arg1);
+    void on_comboComp_currentTextChanged(const QString &arg1);
 
 private:
     Ui::addEntry *ui;
-    ContentLog Entry;
-    MainWindow *mainWindow;
-
-
 };
 
 #endif // ADDENTRY_H
