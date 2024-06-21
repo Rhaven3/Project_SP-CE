@@ -78,26 +78,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="graphic2">
-    <property name="geometry">
-     <rect>
-      <x>660</x>
-      <y>350</y>
-      <width>281</width>
-      <height>192</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QGraphicsView" name="graphic1">
-    <property name="geometry">
-     <rect>
-      <x>660</x>
-      <y>140</y>
-      <width>281</width>
-      <height>192</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
@@ -194,6 +174,32 @@
       </rect>
      </property>
     </widget>
+   </widget>
+   <widget class="QLabel" name="graphic2">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>350</y>
+      <width>281</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="graphic1">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>140</y>
+      <width>281</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

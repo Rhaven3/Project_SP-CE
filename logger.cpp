@@ -52,6 +52,9 @@ QStringList Logger::extractCarte()
     std::vector<QString> cartes;
     QStringList cartes_trier;
 
+    //test
+    cartes_trier.append("test");
+
     for (Log log : fileContent)
     {
         cartes.push_back(log.content[2]);

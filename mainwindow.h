@@ -21,7 +21,13 @@ class Scan;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    QString filePath = "../Log/Depannage.txt";
+    QString
+        filePath = "../Log/Depannage.txt",
+        dirLogPath = "../Log/",
+        formatFile = ".txt",
+        graph1Path = "../data/graph1Exemple.png",
+        graph2Path = "../data/graphExemple.png";
+
     QStringList columnNames = {
         "Date/Heure",
         "Numero_AOI",
@@ -38,6 +44,8 @@ class MainWindow : public QMainWindow
         "Flag",
         "Commentaire"
     };
+
+    QPixmap graph1, graph2;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);

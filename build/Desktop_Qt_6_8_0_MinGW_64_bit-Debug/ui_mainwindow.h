@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLCDNumber>
@@ -35,8 +34,6 @@ public:
     QComboBox *comboCarte;
     QLabel *label;
     QTableWidget *tableLogs;
-    QGraphicsView *graphic2;
-    QGraphicsView *graphic1;
     QGroupBox *groupBox;
     QLCDNumber *NumNRes;
     QLCDNumber *Num;
@@ -44,6 +41,8 @@ public:
     QLabel *label_3;
     QLabel *label_4;
     QLCDNumber *NumTotal;
+    QLabel *graphic2;
+    QLabel *graphic1;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -72,12 +71,6 @@ public:
         tableLogs = new QTableWidget(centralwidget);
         tableLogs->setObjectName("tableLogs");
         tableLogs->setGeometry(QRect(20, 10, 621, 471));
-        graphic2 = new QGraphicsView(centralwidget);
-        graphic2->setObjectName("graphic2");
-        graphic2->setGeometry(QRect(660, 350, 281, 192));
-        graphic1 = new QGraphicsView(centralwidget);
-        graphic1->setObjectName("graphic1");
-        graphic1->setGeometry(QRect(660, 140, 281, 192));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
         groupBox->setGeometry(QRect(660, 9, 281, 121));
@@ -102,6 +95,12 @@ public:
         NumTotal = new QLCDNumber(groupBox);
         NumTotal->setObjectName("NumTotal");
         NumTotal->setGeometry(QRect(110, 30, 151, 23));
+        graphic2 = new QLabel(centralwidget);
+        graphic2->setObjectName("graphic2");
+        graphic2->setGeometry(QRect(660, 350, 281, 191));
+        graphic1 = new QLabel(centralwidget);
+        graphic1->setObjectName("graphic1");
+        graphic1->setGeometry(QRect(660, 140, 281, 191));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -126,6 +125,8 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "Non R\303\251solu", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "textLabel", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
+        graphic2->setText(QString());
+        graphic1->setText(QString());
     } // retranslateUi
 
 };
