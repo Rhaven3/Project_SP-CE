@@ -1,7 +1,14 @@
-# Suivie Panne
+# [Suivie Panne](https://github.com/Rhaven3/Project_SP-CE)
 IHM de suivi de panne permettant l'intervention et le suivi de défaut des cartes électronique
 
 ![Image](https://github.com/Rhaven3/Project_SP-CE/assets/105242602/b588551f-c9c5-466f-a35d-930d2a5ffa9a)
+
+- - -
+## [Version]()
+| Version | Statut |
+| --- | --- |
+| [v0.1](https://github.com/Rhaven3/Project_SP-CE/releases/tag/Alpha) | $${\color{red}pre-release}$$ |
+| [v0.9](https://github.com/Rhaven3/Project_SP-CE/releases/tag/Beta) | $${\color{red}pre-release}$$ |
 
 - - -
 ## À quoi ça sert ?!
