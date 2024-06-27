@@ -4,9 +4,20 @@ Logger::Logger(const QString &filepath, const QString &format)
 {
     filePath = filepath;
 
+
     Counting();
+    createFile();
     fileContent = extract(filePath, format);
     fileCartes = extractCarte();
+
+    for (QString carte : fileCartes)
+    {
+        cartePath.push_back((dir+carte+formatFile));
+    }
+
+    //connect->setID(id);
+    //connect->setMDP(mdp);
+    //connect.test();
 }
 
 std::vector<Log> Logger::extract(const QString& filepath, const QString &format, const unsigned short header) {
@@ -68,4 +79,46 @@ QStringList Logger::extractCarte()
         cartes_trier.append(carte);
     }
     return cartes_trier;
+}
+
+void Logger::createFile()
+{
+    std::vector<QString> cartes;
+    std::unordered_set<QString> carteSet;
+
+    for (Log log : fileContent)
+    {
+        cartes.push_back(log.content[2]);
+    }
+
+    for (const auto& carte : cartes)
+    {
+        if (!carteSet.insert(carte).second)
+        {continue;}
+
+        std::ofstream file("../Log/"+carte.toStdString()+".txt");
+        std::ofstream addFile("../Log/"+carte.toStdString()+".txt", std::ios::app);
+
+        for (Log log : fileContent)
+        {
+            if (log.content[2]!=carte)
+            {continue;}
+            addFile<< log.content[0].toStdString()<<'\n';
+
+            std::cout << log.content[0].toStdString()<< '\n';
+        }
+        std::cout << "Le fichier " << (carte.toStdString()+".txt") << " a eter creer et des donnees ont eter ecrites dedans." << '\n';
+        std::cout<< '\n'<<'\n';
+        addFile.close();
+        file.close();
+    }
+}
+
+
+QList<QPieSlice> Logger::extract4PieChart()
+{
+    QList<QPieSlice> PieSlices;
+    QPieSlice Composant, Soudure, circuit, autre;
+
+    //en cours...
 }

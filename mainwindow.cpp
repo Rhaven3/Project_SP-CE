@@ -9,9 +9,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->comboCarte->setEditable(true);
 
+    //Dialog
+    EntryDialog = new addEntry(this);
+    ScanDialog= new Scan(this);
+
+    ConnectionDialog = new Connection(this);
+    ConnectionDialog->show();
+
+
     //définition des logs
     ui->comboCarte->addItems(logger->fileCartes);
-    filePath = "../Log/"+ui->comboCarte->currentText()+".txt";
+    filePath = dirLogPath+ui->comboCarte->currentText()+formatFile;
 
 
     //définition de tableLogs
@@ -28,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete EntryDialog;
+    delete ScanDialog;
 }
 
 void MainWindow::setTableLogs()
@@ -80,11 +90,21 @@ void MainWindow::setTableLogs()
 void MainWindow::setGraphs()
 {
     graph1.load(graph1Path);
+
     graph2.load(graph2Path);
 
     ui->graphic1->setPixmap(graph1);
     ui->graphic2->setPixmap(graph2);
 }
+
+void MainWindow::createGraphs1()
+{
+
+
+
+
+}
+
 
 
 
@@ -92,14 +112,12 @@ void MainWindow::setGraphs()
 
 void MainWindow::on_butEntry_clicked()
 {
-    EntryDialog = new addEntry(this);
-    EntryDialog->show();
+    EntryDialog->showp();
 }
 
 
 void MainWindow::on_butRec_clicked()
 {
-    ScanDialog = new Scan(this);
     ScanDialog->show();
 }
 
@@ -121,9 +139,29 @@ void MainWindow::on_tableLogs_cellClicked(int row)
     {
         if (log.logRow == row)
         {
-            EntryDialog = new addEntry(this);
+            EntryDialog = new addEntry(this,
+                                       addEntry::Edit,
+                                       log.content[3],
+                                       log.content[4],
+                                       log.content[15],
+                                       "Defaut",
+                                       log.content[5],
+                                       log.content[6],
+                                       log.content[7],
+                                       log.content[8],
+                                       "DetailPanne",
+                                       log.content[16],
+                                       log.content[14],
+                                       log.content[13]);
             EntryDialog->show();
         }
     }
 }
 
+
+// PUBLIC GETTER
+QString MainWindow::getCurrentCarte()
+{
+    QString currentCarte = this->ui->comboCarte->currentText();
+    return currentCarte;
+}

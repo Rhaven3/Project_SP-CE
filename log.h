@@ -44,9 +44,10 @@ public:
      * - Commentaire
      * - Composant
      * - Flag
+     * - Poste
      * - Commentaire
      */
-    static constexpr unsigned short content_length =16;
+    static constexpr unsigned short content_length =17;
     std::array<QString, content_length> content;
 
     int logRow;

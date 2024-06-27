@@ -2,14 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <iostream>
-#include <unordered_set>
 //Dialog
 #include "addentry.h"
 #include "scan.h"
 #include "logger.h"
+#include "connection.h"
+
 
 class Logger;
+class addEntry;
 
 namespace Ui {
 class MainWindow;
@@ -22,11 +23,11 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     QString
-        filePath = "../Log/Depannage.txt",
-        dirLogPath = "../Log/",
+        filePath = "data/Depannage.txt",
+        dirLogPath = "Log/",
         formatFile = ".txt",
-        graph1Path = "../data/graph1Exemple.png",
-        graph2Path = "../data/graphExemple.png";
+        graph1Path = "data/graph1Exemple.png",
+        graph2Path = "data/graphExemple.png";
 
     QStringList columnNames = {
         "Date/Heure",
@@ -39,9 +40,10 @@ class MainWindow : public QMainWindow
         "Mesure",
         "Limite Min",
         "Limite Max",
-        "Commentaire",
+        "Commentaire Panne",
         "Composant",
         "Flag",
+        "Poste",
         "Commentaire"
     };
 
@@ -52,6 +54,9 @@ public:
     ~MainWindow();
 
     Logger *logger = new Logger(filePath);
+
+    //getter
+    QString getCurrentCarte();
 
 private slots:
     void on_butEntry_clicked();
@@ -64,8 +69,14 @@ private:
     //Dialog
     addEntry *EntryDialog;
     Scan *ScanDialog;
+    Connection *ConnectionDialog;
 
     void setTableLogs();
+
+    QPieSeries *graphic1 = new QPieSeries();
+
+    void createGraphs1();
+    void createGraphs2();
     void setGraphs();
 };
 
