@@ -9,6 +9,7 @@ IHM de suivi de panne permettant l'intervention et le suivi de défaut des carte
 | --- | --- |
 | [v0.1](https://github.com/Rhaven3/Project_SP-CE/releases/tag/Alpha) | $${\color{red}pre-release}$$ |
 | [v0.9](https://github.com/Rhaven3/Project_SP-CE/releases/tag/Beta) | $${\color{red}pre-release}$$ |
+| [v0.12](https://github.com/Rhaven3/Project_SP-CE/releases/tag/Beta_2) | $${\color{red}pre-release}$$ |
 
 - - -
 ## À quoi ça sert ?!
