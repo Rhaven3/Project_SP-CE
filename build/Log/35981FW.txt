@@ -1,0 +1,3 @@
+27/06/2024 11:00:13	35981FW||01049886|FIC593043|04|00.02|Ouverture de l'instrument OX5042|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP4|
+27/06/2024 11:01:08	35981FW||01049886|FIC593043|04|00.02|Ouverture de l'instrument OX5042|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP4|
+27/06/2024 11:40:28	35981FW||01049886|FIC593043|04|00.02|Ouverture de l'instrument OX5042|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP4|

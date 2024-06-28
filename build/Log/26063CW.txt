@@ -1,4 +1,4 @@
-06/06/2024 14:38:16	26063CW||01030096|FIC593156|00|10.01|Tension SD1: 250V |0.0053933|0.76|0.84|||0|VP4
-07/06/2024 08:17:32	26063CW||01030096|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-07/06/2024 08:18:53	26063CW||01030096|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-07/06/2024 08:19:25	26063CW||01030096|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
+06/06/2024 14:38:16	26063CW||01030096|FIC593156|00|10.01|Tension SD1: 250V |0.0053933|0.76|0.84|||0|VP4|
+07/06/2024 08:17:32	26063CW||01030096|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+07/06/2024 08:18:53	26063CW||01030096|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+07/06/2024 08:19:25	26063CW||01030096|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|

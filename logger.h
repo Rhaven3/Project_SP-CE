@@ -45,7 +45,7 @@ public:
 
     QStringList extractCarte();
     QList<QPieSlice> extract4PieChart();
-    void createFile();
+    void createFile(QString& dirLogPath, QString& formatFile);
 };
 
 #endif // LOGGER_H

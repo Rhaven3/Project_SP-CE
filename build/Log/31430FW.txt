@@ -1,0 +1,1 @@
+28/06/2024 11:01:30	31430FW|692761F00|01049040|FIC592655|9|18|C.A 6552 : Vparnoux|0|0|0|Une erreur de d�passement s'est produite en cours de transfert. Un caract�re n'a pas �t� lu par la carte avant l'arriv�e du caract�re suivant.||0|VP2N|

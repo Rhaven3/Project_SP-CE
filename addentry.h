@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 #include <QDialog>
 #include "sql.h"
+#include <unordered_map>
 
 
 class MainWindow;
@@ -17,6 +18,15 @@ class addEntry : public QDialog
     Q_OBJECT
 
     QString States;
+    char spliter_defaut = '_';
+    char spliter_cat = ':';
+    char spliter_commentaire[3];
+
+
+    // Setter
+    void setCurrentCarte ();
+    void setEditChoiceDefaut(QString& defaut);
+    int hashString(const QString& std);
 
 
 public:
@@ -39,6 +49,13 @@ public:
     static const char Edit = 'E',
         Add = 'A';
 
+    struct CommentaireSplited
+    {
+        QString commentaire = "";
+        QString defaut = "";
+    };
+    CommentaireSplited splitCommentaire(QString& commentaire);
+
     void showp();
 
 
@@ -46,8 +63,6 @@ private slots:
     void on_comboCarte_currentTextChanged(const QString &arg1);
     void on_buttonBox_accepted();
 
-    // Setter
-    void setCurrentCarte ();
 
 // CHECKBOX DEFAUT
     //Composant
@@ -81,6 +96,7 @@ private:
     void setCommentaire(QString& commentaire);
     void setCommentaire(char mode,QString CatDef,QString defaut);
     void setCommentaire(char mode,QString CatDef,QString defaut, QString& commentaire);
+
 };
 
 #endif // ADDENTRY_H

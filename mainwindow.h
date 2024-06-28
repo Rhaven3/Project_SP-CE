@@ -23,11 +23,11 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     QString
-        filePath = "data/Depannage.txt",
-        dirLogPath = "Log/",
+        filePath = "G:/production/depannage/Suivi_L4832/Depannage.txt",
+        dirLogPath = "../Log/",
         formatFile = ".txt",
-        graph1Path = "data/graph1Exemple.png",
-        graph2Path = "data/graphExemple.png";
+        graph1Path = "../data/graph1Exemple.png",
+        graph2Path = "../data/graphExemple.png";
 
     QStringList columnNames = {
         "Date/Heure",

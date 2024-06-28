@@ -1,1 +1,1 @@
-13/06/2024 09:06:41	21944FW|X04244G01|01043081|FIC596456|05|xB4.01|Ouverture de l'instrument Scopix IV|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP3N
+13/06/2024 09:06:41	21944FW|X04244G01|01043081|FIC596456|05|xB4.01|Ouverture de l'instrument Scopix IV|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP3N|

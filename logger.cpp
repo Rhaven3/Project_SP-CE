@@ -6,7 +6,6 @@ Logger::Logger(const QString &filepath, const QString &format)
 
 
     Counting();
-    createFile();
     fileContent = extract(filePath, format);
     fileCartes = extractCarte();
 
@@ -81,7 +80,7 @@ QStringList Logger::extractCarte()
     return cartes_trier;
 }
 
-void Logger::createFile()
+void Logger::createFile(QString &dirLogPath, QString &formatfile)
 {
     std::vector<QString> cartes;
     std::unordered_set<QString> carteSet;
@@ -96,8 +95,8 @@ void Logger::createFile()
         if (!carteSet.insert(carte).second)
         {continue;}
 
-        std::ofstream file("../Log/"+carte.toStdString()+".txt");
-        std::ofstream addFile("../Log/"+carte.toStdString()+".txt", std::ios::app);
+        std::ofstream file(dirLogPath.toStdString()+carte.toStdString()+formatfile.toStdString());
+        std::ofstream addFile(dirLogPath.toStdString()+carte.toStdString()+formatfile.toStdString(), std::ios::app);
 
         for (Log log : fileContent)
         {

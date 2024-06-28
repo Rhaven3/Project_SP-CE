@@ -1,15 +1,35 @@
 #include "addentry.h"
 #include "ui_addentry.h"
 
-addEntry::addEntry(MainWindow *parent, char mode, QString Article, QString OF, QString Poste, QString Defaut, QString FIC, QString IFIC, QString Panne, QString DesPanne, QString DetailPanne, QString Commentaire, QString State, QString Comp)
+addEntry::addEntry(MainWindow *parent,
+                   char mode,
+                   QString Article,
+                   QString OF,
+                   QString Poste,
+                   QString Defaut,
+                   QString FIC,
+                   QString IFIC,
+                   QString Panne,
+                   QString DesPanne,
+                   QString DetailPanne,
+                   QString Commentaire,
+                   QString State,
+                   QString Comp)
     : QDialog(parent)
     , ui(new Ui::addEntry)
 {
+    spliter_commentaire[0] = '\xc2';
+    spliter_commentaire[1] = '\xa7';
+    spliter_commentaire[2] = '\0';
+
+
     mainWindow = parent;
 
     ui->setupUi(this);
     ui->comboComp->setEditable(true);
     ui->comboCarte->setEditable(true);
+    //setCurrentCarte();
+    ui->comboCarte->addItems(mainWindow->logger->fileCartes);
 
     // Choix Descri Panne
     ui->frameMesure->hide();
@@ -21,11 +41,15 @@ addEntry::addEntry(MainWindow *parent, char mode, QString Article, QString OF, Q
         ui->frameDescriPanne->hide();
     }
 
+
+
+
+
     if (mode == Edit)
     {
-        ui->comboCarte->setEditable(false);
         ui->comboCarte->clear();
         setCurrentCarte();
+        ui->comboCarte->setEditable(false);
         ui->lineArticle->setReadOnly(true);
         ui->lineOF->setReadOnly(true);
 
@@ -34,6 +58,7 @@ addEntry::addEntry(MainWindow *parent, char mode, QString Article, QString OF, Q
         ui->comboPoste->setCurrentText(Poste);
 
         // Defaut
+        setEditChoiceDefaut(Defaut);
 
 
         ui->lineFIC->setText(FIC);
@@ -78,6 +103,94 @@ addEntry::~addEntry()
     delete ui;
 }
 
+addEntry::CommentaireSplited addEntry::splitCommentaire(QString &commentaire)
+{
+    QStringList split = commentaire.split(spliter_commentaire);
+    CommentaireSplited structured_commentaire;
+
+    if (split.size() ==1)
+    {
+        structured_commentaire.commentaire = commentaire;
+    } else {
+
+        structured_commentaire.commentaire = split[1];
+        structured_commentaire.defaut = split[0];
+    }
+
+    return structured_commentaire;
+}
+
+
+int addEntry::hashString(const QString &str)
+{
+    static std::unordered_map<QString, int> QStringToInt = {
+        //Composant
+        {ui->checkHS->text(), 1},
+        {ui->checkPolarite->text(), 2},
+        {ui->checkabsent->text(), 3},
+        {ui->checkbrise->text(), 4},
+
+        //Soudure
+        {ui->checkabsente->text(), 5},
+        {ui->checkseche->text(), 6},
+        {ui->checkmanhatan->text(), 7},
+        {ui->checkpont->text(), 8},
+
+        //CircuitImprimé
+        {ui->checkpontseri->text(), 9},
+        {ui->checkPiste->text(), 10},
+
+        //autre
+        {ui->textDefAutre->toPlainText(), 11}
+    };
+
+    auto it = QStringToInt.find(str);
+    if (it != QStringToInt.end()) {
+        return it->second;
+    }
+    return -1; // Valeur par défaut pour une chaîne non trouvée
+}
+
+void addEntry::setEditChoiceDefaut(QString &defaut)
+{
+    switch (hashString(defaut))
+    {
+    case 1:
+        ui->checkHS->setChecked(true);
+        break;
+    case 2:
+        ui->checkPolarite->setChecked(true);
+        break;
+    case 3:
+        ui->checkabsent->setChecked(true);
+        break;
+    case 4:
+        ui->checkbrise->setChecked(true);
+        break;
+    case 5:
+        ui->checkabsente->setChecked(true);
+        break;
+    case 6:
+        ui->checkseche->setChecked(true);
+        break;
+    case 7:
+        ui->checkmanhatan->setChecked(true);
+        break;
+    case 8:
+        ui->checkpont->setChecked(true);
+        break;
+    case 9:
+        ui->checkpontseri->setChecked(true);
+        break;
+    case 10:
+        ui->checkPiste->setChecked(true);
+        break;
+    case 11:
+        ui->checkautre->setChecked(true);
+        break;
+    }
+}
+
 
 void addEntry::setCurrentCarte()
 {
@@ -116,7 +229,7 @@ void addEntry::on_buttonBox_accepted()
         setCommentaire('+', "Autre",ui->textDefAutre->toPlainText());
     }
 
-
+    qDebug() << Commentaire_final << '\n';
 }
 
 
@@ -256,11 +369,11 @@ void addEntry::setCommentaire(char mode,QString Catdef,QString defaut, QString &
     switch (mode)
     {
     case '+': // Ajout
-        Defaut = Defaut+"_"+defaut;
+        Defaut = Defaut+spliter_defaut+defaut;
         break;
 
     case '-': // Suppression
-        Defaut.remove(("_"+defaut));
+        Defaut.remove((spliter_defaut+defaut));
         if (Defaut.isEmpty())
         {
             CategorieDefaut ="";
@@ -270,10 +383,13 @@ void addEntry::setCommentaire(char mode,QString Catdef,QString defaut, QString &
         break;
     }
 
-
     Commentaire = commentaire;
-    QString pre_com = " / ";
-    QString preCat = ": ";
+    QString pre_com;
+    pre_com.append(spliter_commentaire);
+    pre_com = " "+pre_com+" ";
+    QString preCat;
+    preCat.append(spliter_cat);
+    preCat = preCat+" ";
 
     Commentaire_final = CategorieDefaut+preCat+Defaut+pre_com+Commentaire;
 }
@@ -287,8 +403,12 @@ void addEntry::setCommentaire(QString &commentaire)
 
 {
     Commentaire = commentaire;
-    QString pre_com = " / ";
-    QString preCat = ": ";
+    QString pre_com;
+    pre_com.append(spliter_commentaire);
+    pre_com = " "+pre_com+" ";
+    QString preCat;
+    preCat.append(spliter_cat);
+    preCat = preCat+" ";
 
     if (Defaut.isEmpty())
     {

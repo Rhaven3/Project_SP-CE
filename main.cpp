@@ -14,8 +14,6 @@
 //default
 #include <QApplication>
 #include <QtCharts>
-
-#include <iostream>
 //macro
 #define DEPRECATED [[deprecated]]
 #define DEPRECATED_MSG(msg) [[deprecated(msg)]]

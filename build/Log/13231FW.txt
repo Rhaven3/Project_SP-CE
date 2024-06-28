@@ -1,0 +1,2 @@
+20/06/2024 08:59:22	13231FW|694171J01|01046251|FIC593094|07|04.27|V�rification g�n�rateur BF en sortie de T302 : 1V �1%|1.0696|0.99|1|||0|VP3N|
+20/06/2024 09:30:51	13231FW|694171J01|01046251|FIC593094|07|02.10|V�rification Prog WiFi|0|0|0|Impossible de trouver dans D:\L4832\Exe\PEL112_113\ResChargementWiFiPEL.log||0|VP3N|

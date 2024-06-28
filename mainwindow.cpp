@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //logger->createFile(dirLogPath, formatFile);
+
     ui->comboCarte->setEditable(true);
 
     //Dialog
@@ -40,6 +42,13 @@ MainWindow::~MainWindow()
     delete ScanDialog;
 }
 
+//public getter current carte
+QString MainWindow::getCurrentCarte()
+{
+    QString currentCarte = this->ui->comboCarte->currentText();
+    return currentCarte;
+}
+
 void MainWindow::setTableLogs()
 {
     ui->tableLogs->clearContents();
@@ -56,18 +65,18 @@ void MainWindow::setTableLogs()
     {
         log.setRow(row);
 
-        for (unsigned int index=1; index<log.content.size(); ++index)
+        for (unsigned int index=1; index<log.content.size()+1; ++index)
         {
             log.setContentTableColumn(index, index-1);
 
-            QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(pow(log.logRow, log.getContentTableColumn(index))));
-            newItem->setText(log.content[index]);
+            QTableWidgetItem *newItem = new QTableWidgetItem(tr("%1").arg(pow(log.logRow, log.getContentTableColumn(index-1))));
+            newItem->setText(log.content[index-1]);
 
             // edition des Cellules
-            ui->tableLogs->setItem(log.logRow, log.getContentTableColumn(index), newItem);
+            ui->tableLogs->setItem(log.logRow, log.getContentTableColumn(index-1), newItem);
 
             //State Couleur
-            if (!(index==14 || index==2)) {continue;}
+            if (!(index==15 || index==3)) {continue;}
             switch (log.content[14].toInt())
             {
             case 0:
@@ -112,12 +121,15 @@ void MainWindow::createGraphs1()
 
 void MainWindow::on_butEntry_clicked()
 {
+    //EntryDialog->~addEntry();
+    EntryDialog = new addEntry(this, addEntry::Add);
     EntryDialog->showp();
 }
 
 
 void MainWindow::on_butRec_clicked()
 {
+    ScanDialog= new Scan(this);
     ScanDialog->show();
 }
 
@@ -135,33 +147,29 @@ void MainWindow::on_comboCarte_currentTextChanged(const QString &arg1)
 
 void MainWindow::on_tableLogs_cellClicked(int row)
 {
+    addEntry::CommentaireSplited initial_commentaire;
+
     for (Log &log : logger->fileContent)
     {
         if (log.logRow == row)
         {
+            initial_commentaire = EntryDialog->splitCommentaire(log.content[16]);
+
             EntryDialog = new addEntry(this,
                                        addEntry::Edit,
                                        log.content[3],
                                        log.content[4],
                                        log.content[15],
-                                       "Defaut",
+                                       initial_commentaire.defaut,
                                        log.content[5],
                                        log.content[6],
                                        log.content[7],
                                        log.content[8],
                                        "DetailPanne",
-                                       log.content[16],
+                                       initial_commentaire.commentaire,
                                        log.content[14],
                                        log.content[13]);
             EntryDialog->show();
         }
     }
-}
-
-
-// PUBLIC GETTER
-QString MainWindow::getCurrentCarte()
-{
-    QString currentCarte = this->ui->comboCarte->currentText();
-    return currentCarte;
 }

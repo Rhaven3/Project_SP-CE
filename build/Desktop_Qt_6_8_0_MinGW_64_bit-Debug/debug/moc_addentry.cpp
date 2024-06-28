@@ -63,7 +63,6 @@ constexpr auto qt_meta_stringdata_CLASSaddEntryENDCLASS = QtMocHelpers::stringDa
     "",
     "arg1",
     "on_buttonBox_accepted",
-    "setCurrentCarte",
     "on_checkHS_stateChanged",
     "on_checkPolarite_stateChanged",
     "on_checkabsent_stateChanged",
@@ -73,7 +72,8 @@ constexpr auto qt_meta_stringdata_CLASSaddEntryENDCLASS = QtMocHelpers::stringDa
     "on_checkmanhatan_stateChanged",
     "on_checkpont_stateChanged",
     "on_checkpontseri_stateChanged",
-    "on_checkPiste_stateChanged"
+    "on_checkPiste_stateChanged",
+    "on_comboChoicePanne_currentTextChanged"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -96,22 +96,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSaddEntryENDCLASS[] = {
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    1,   92,    2, 0x08,    1 /* Private */,
        4,    0,   95,    2, 0x08,    3 /* Private */,
-       5,    0,   96,    2, 0x08,    4 /* Private */,
-       6,    1,   97,    2, 0x08,    5 /* Private */,
-       7,    1,  100,    2, 0x08,    7 /* Private */,
-       8,    1,  103,    2, 0x08,    9 /* Private */,
-       9,    1,  106,    2, 0x08,   11 /* Private */,
-      10,    1,  109,    2, 0x08,   13 /* Private */,
-      11,    1,  112,    2, 0x08,   15 /* Private */,
-      12,    1,  115,    2, 0x08,   17 /* Private */,
-      13,    1,  118,    2, 0x08,   19 /* Private */,
-      14,    1,  121,    2, 0x08,   21 /* Private */,
-      15,    1,  124,    2, 0x08,   23 /* Private */,
+       5,    1,   96,    2, 0x08,    4 /* Private */,
+       6,    1,   99,    2, 0x08,    6 /* Private */,
+       7,    1,  102,    2, 0x08,    8 /* Private */,
+       8,    1,  105,    2, 0x08,   10 /* Private */,
+       9,    1,  108,    2, 0x08,   12 /* Private */,
+      10,    1,  111,    2, 0x08,   14 /* Private */,
+      11,    1,  114,    2, 0x08,   16 /* Private */,
+      12,    1,  117,    2, 0x08,   18 /* Private */,
+      13,    1,  120,    2, 0x08,   20 /* Private */,
+      14,    1,  123,    2, 0x08,   22 /* Private */,
+      15,    1,  126,    2, 0x08,   24 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
@@ -122,6 +121,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSaddEntryENDCLASS[] = {
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::QString,    3,
 
        0        // eod
 };
@@ -139,8 +139,6 @@ Q_CONSTINIT const QMetaObject addEntry::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'on_buttonBox_accepted'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'setCurrentCarte'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_checkHS_stateChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -171,7 +169,10 @@ Q_CONSTINIT const QMetaObject addEntry::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_checkPiste_stateChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_comboChoicePanne_currentTextChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
     >,
     nullptr
 } };
@@ -184,17 +185,17 @@ void addEntry::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         switch (_id) {
         case 0: _t->on_comboCarte_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 1: _t->on_buttonBox_accepted(); break;
-        case 2: _t->setCurrentCarte(); break;
-        case 3: _t->on_checkHS_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 4: _t->on_checkPolarite_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 5: _t->on_checkabsent_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 6: _t->on_checkbrise_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->on_checkabsente_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 8: _t->on_checkseche_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 9: _t->on_checkmanhatan_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 10: _t->on_checkpont_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 11: _t->on_checkpontseri_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 12: _t->on_checkPiste_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 2: _t->on_checkHS_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->on_checkPolarite_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 4: _t->on_checkabsent_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->on_checkbrise_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 6: _t->on_checkabsente_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 7: _t->on_checkseche_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 8: _t->on_checkmanhatan_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->on_checkpont_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: _t->on_checkpontseri_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 11: _t->on_checkPiste_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->on_comboChoicePanne_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }

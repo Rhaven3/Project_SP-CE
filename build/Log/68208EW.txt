@@ -1,6 +1,6 @@
-12/06/2024 14:53:36	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 14:54:16	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 15:01:57	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 15:03:52	68208EW|695038D00|01038122|FIC593156|00|00.00| Test COM|0|0|0|[string "resp = appli.InstrumentRead (1, 'Deactivate..."]:1: �criture d'instrument CA616X||0|VP4
-12/06/2024 15:04:36	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 15:08:42	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
+12/06/2024 14:53:36	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 14:54:16	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 15:01:57	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 15:03:52	68208EW|695038D00|01038122|FIC593156|00|00.00| Test COM|0|0|0|[string "resp = appli.InstrumentRead (1, 'Deactivate..."]:1: �criture d'instrument CA616X||0|VP4|
+12/06/2024 15:04:36	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 15:08:42	68208EW|695038D00|01038122|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
