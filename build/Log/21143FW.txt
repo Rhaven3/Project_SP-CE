@@ -1,0 +1,2 @@
+26/06/2024 09:06:34	21143FW|693341E00|01043932|FIC592718|09|1.00|Ouverture de l'instrument MX5060|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP3N|
+26/06/2024 09:07:07	21143FW|693341E00|01043932|FIC592718|09|1.00|Ouverture de l'instrument MX5060|0|0|0|Les informations concernant la position sont insuffisantes ou bien soit le p�riph�rique soit la ressource n'est pas pr�sent dans le syst�me.||0|VP3N|

@@ -1,4 +1,5 @@
 QT       += core gui charts
+QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,21 +11,26 @@ CONFIG += c++17
 
 SOURCES += \
     addentry.cpp \
+    connection.cpp \
     log.cpp \
     logger.cpp \
     main.cpp \
     mainwindow.cpp \
-    scan.cpp
+    scan.cpp \
+    sql.cpp
 
 HEADERS += \
     addentry.h \
+    connection.h \
     log.h \
     logger.h \
     mainwindow.h \
-    scan.h
+    scan.h \
+    sql.h
 
 FORMS += \
     addentry.ui \
+    connection.ui \
     mainwindow.ui \
     scan.ui
 

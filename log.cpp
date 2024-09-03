@@ -41,7 +41,7 @@ void Log::split() const {
 
     // Split
     localContent[1] = QlogL1.at(0);
-    for (unsigned int i=2; i<content_length; ++i) {
+    for (unsigned int i=2; i<QlogL.size()+2; ++i) {
         localContent[i] = QlogL.at(i-2);
     }
 

@@ -1,1 +1,1 @@
-18/06/2024 11:08:08	14586FW|694171J01|01046251|FIC593094|07|07.15|V�rification arr�t de la carte, courant dans la batterie : 0mA �5mA|0.28957|-0.005|0.005|||0|VP3N
+18/06/2024 11:08:08	14586FW|694171J01|01046251|FIC593094|07|07.15|V�rification arr�t de la carte, courant dans la batterie : 0mA �5mA|0.28957|-0.005|0.005|||0|VP3N|

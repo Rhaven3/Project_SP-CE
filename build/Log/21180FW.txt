@@ -1,0 +1,2 @@
+25/06/2024 11:02:31	21180FW|693341E00|01043932|FIC592718|08|1.02|consommation carte en 110VAC ( 70 � 130 mA )|0.00139|0.07|0.013|||0|VP3N|
+25/06/2024 11:15:29	21180FW|693341E00|01043932|FIC592718|08|8.0|R�sultat TestEthernet.exe|0|0|0|Impossible de trouver dans TestEthernet.res||0|VP3N|

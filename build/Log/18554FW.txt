@@ -1,2 +1,2 @@
-07/06/2024 11:04:33	18554FW|694886C00|01045108|FIC593095|02|23|R�sultat chargement application|0|0|0|Download error !||0|VP3N
-07/06/2024 11:05:15	18554FW|694886C00|01045108|FIC593095|02|0|V�rification presence carte traitement |9.9e+37|0|1|||0|VP3N
+07/06/2024 11:04:33	18554FW|694886C00|01045108|FIC593095|02|23|R�sultat chargement application|0|0|0|Download error !||0|VP3N|
+07/06/2024 11:05:15	18554FW|694886C00|01045108|FIC593095|02|0|V�rification presence carte traitement |9.9e+37|0|1|||0|VP3N|

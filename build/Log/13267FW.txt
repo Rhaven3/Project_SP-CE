@@ -1,0 +1,2 @@
+20/06/2024 08:11:29	13267FW|694171J01|01046251|FIC593094|07|00.07| n� instrument MX5060|0|0|0|D:\L4832\Lua\lib\modules\PEL112_113\MX5060.lua:68: MX5060:Write("SENSE:FUNC "VOLT""):-221,Settings conflict||0|VP3N|
+20/06/2024 08:20:14	13267FW|694171J01|01046251|FIC593094|07|11.02|R�sultat communication Ethernet : 0=BON (-2=Time-Out)|0|0|0|    Valeur relev�e : -2||0|VP3N|

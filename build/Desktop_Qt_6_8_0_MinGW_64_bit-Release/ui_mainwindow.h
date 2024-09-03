@@ -82,11 +82,11 @@ public:
         Num->setGeometry(QRect(110, 90, 151, 23));
         label_2 = new QLabel(groupBox);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(30, 60, 71, 20));
+        label_2->setGeometry(QRect(20, 60, 71, 20));
         label_2->setFont(font);
         label_3 = new QLabel(groupBox);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(28, 90, 61, 20));
+        label_3->setGeometry(QRect(18, 90, 81, 20));
         label_3->setFont(font);
         label_4 = new QLabel(groupBox);
         label_4->setObjectName("label_4");
@@ -123,7 +123,7 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Les Cartes", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Compteur de Pannes", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Non R\303\251solu", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "textLabel", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Nbr Passage", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Total", nullptr));
         graphic2->setText(QString());
         graphic1->setText(QString());

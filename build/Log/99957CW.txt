@@ -1,4 +1,4 @@
-12/06/2024 10:52:19	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 10:52:58	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 11:06:52	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
-12/06/2024 11:52:35	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4
+12/06/2024 10:52:19	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 10:52:58	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 11:06:52	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|
+12/06/2024 11:52:35	99957CW|695038D01|01037538|FIC593156|00|01.01|R�sultat Chargement Prog.|0|0|0|Impossible de trouver dans C:\L4832\Exe\CA616x\Resultat.txt||0|VP4|

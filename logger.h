@@ -3,14 +3,27 @@
 
 #include <fstream>
 #include <unordered_set>
+#include <QtCharts>
+#include "iostream"
 #include "log.h"
+#include "sql.h"
 
 class Log;
 
 class Logger
 {
     QString filePath;
+    QString dir = "../Log/",
+        formatFile = ".txt";
+    std::vector<QString> cartePath;
     void Counting();
+
+    //connect
+    QString
+        id = "FONTAINE",
+        mdp = "Jcrv4UQ9x56D";
+
+    SQL *connect;
 public:
     Logger(
         const QString& filepath,
@@ -31,11 +44,8 @@ public:
         );
 
     QStringList extractCarte();
-
-    void convertCSV();
-    void view();
-    void scan();
-    void graph();
+    QList<QPieSlice> extract4PieChart();
+    void createFile(QString& dirLogPath, QString& formatFile);
 };
 
 #endif // LOGGER_H

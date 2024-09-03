@@ -1,0 +1,2 @@
+28/06/2024 09:00:14	31466FW|692761F00|01049040|FIC592655|9|25.1|verification appui touche X201 |0|0|0|    Valeur relev�e : 44862||0|VP2N|
+28/06/2024 09:01:07	31466FW|692761F00|01049040|FIC592655|9|25.1|verification appui touche X201 |0|0|0|    Valeur relev�e : 44862||0|VP2N|

@@ -1,0 +1,1 @@
+28/06/2024 08:29:45	21051FW|693341E00|01043932|FIC592718|09|6.05|OX5042 : MEAS:VOLT? INT1|0|0|0|Le d�lai d'attente (timeout) a expir� avant que l'op�ration ne soit achev�e.||0|VP3N|
